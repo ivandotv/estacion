@@ -1,9 +1,9 @@
 import { Channel } from './channel'
 import { EventPayload } from './broadcaster'
 export class EventBus {
-  private _maxListeners: number
+  private readonly _maxListeners: number
 
-  private defaultChannel: Channel
+  private readonly defaultChannel: Channel
 
   private channels: {
     [key: string]: Channel | undefined

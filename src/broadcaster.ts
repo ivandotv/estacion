@@ -3,7 +3,7 @@ import { EventEmitter } from 'events'
 export class Broadcaster {
   emitter: EventEmitter
 
-  private _name: string
+  private readonly _name: string
 
   constructor(name: string, maxListeners = 0) {
     this.emitter = new EventEmitter()
