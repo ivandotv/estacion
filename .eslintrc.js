@@ -23,6 +23,7 @@ module.exports = {
       'error',
       {
         allowExpressions: true,
+        allowTypedFunctionExpressions: true,
       },
     ],
     '@typescript-eslint/explicit-member-accessibility': [

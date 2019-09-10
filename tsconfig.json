@@ -9,5 +9,5 @@
     "outDir": "./lib",
     "esModuleInterop": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./src/index.ts"]
 }
