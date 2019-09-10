@@ -7,7 +7,7 @@ export class Broadcaster {
 
   constructor(name: string, maxListeners = 0) {
     this.emitter = new EventEmitter()
-    if (!name) {
+    if (typeof name === 'undefined' || name.length === 0) {
       throw new Error('Broadcaster must have a name')
     }
     this._name = name

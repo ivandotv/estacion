@@ -10,7 +10,7 @@ export class EventBus {
   } = {}
 
   constructor(config: EventBusConfig) {
-    config = config || {}
+    config = typeof config === 'undefined' ? {} : config
     this._maxListeners =
       config.maxListeners === undefined ? 0 : config.maxListeners
     this.defaultChannel = new Channel('*', this._maxListeners)
@@ -25,7 +25,7 @@ export class EventBus {
 
   channel(name: string): Channel {
     var channel = this.channels[name]
-    if (!channel) {
+    if (typeof channel === 'undefined') {
       // create new channel
       channel = this.channels[name] = new Channel(name, this._maxListeners)
       channel.on(this.onChannelEmit)
@@ -44,7 +44,7 @@ export class EventBus {
     }
     var channel = this.channels[name]
     /* istanbul ignore else */
-    if (channel) {
+    if (typeof channel !== 'undefined') {
       channel.destroy()
     }
   }

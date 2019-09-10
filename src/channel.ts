@@ -26,7 +26,7 @@ export class Channel extends Broadcaster {
 
   topic(name: string): Topic {
     var topic = this.topics[name]
-    if (!topic) {
+    if (typeof topic === 'undefined') {
       // create new topic
       topic = this.topics[name] = new Topic(
         name,
@@ -46,7 +46,7 @@ export class Channel extends Broadcaster {
   removeTopic(name: string): boolean {
     const topic = this.topics[name]
     /* istanbul ignore else */
-    if (topic) {
+    if (typeof topic !== 'undefined') {
       this.topics[name] = null
       topic.destroy()
       return true
