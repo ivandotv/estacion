@@ -1,0 +1,7 @@
+node_modules
+/coverage
+/lib
+/types
+/.buildcache
+/.vscode/settings.json
+/test-docs

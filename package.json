@@ -1,0 +1,106 @@
+{
+  "name": "estacion",
+  "version": "1.0.1-alpha.0",
+  "description": "Event bus implementation made on top of native node events module",
+  "main": "lib",
+  "types": "lib",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run compile && npm run test",
+    "test": "jest --verbose --coverage --no-cache",
+    "test:watch": "jest --watch",
+    "ci:test": "jest --runInBand --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
+    "format": "prettier --write \"{./src,./tests}/**/*\"",
+    "fix:src": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "fix:tests": "eslint --fix \"./tests/**/*.{js,jsx,ts,tsx}\"",
+    "fix": "npm-run-all -p fix:*",
+    "clean": "del lib",
+    "docs": "del docs && typedoc --theme markdown --readme none --excludePrivate --out docs/api ./src",
+    "compile": "npm run clean && tsc --tsBuildInfoFile ./.buildcache/lib.tsbuildinfo"
+  },
+  "engines": {
+    "node:": ">=v8.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivandotv/estacion.git"
+  },
+  "author": "Ivan Vlatkovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivandotv/estacion/issues"
+  },
+  "homepage": "https://github.com/ivandotv/estacion#readme",
+  "peerDependencies": {
+    "events": ">=2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "del-cli": "^3.0.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard-with-typescript": "^9.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-junit": "^8.0.0",
+    "jest-watch-typeahead": "^0.4.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.1.11",
+    "typescript": "^3.6.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "events",
+    "event",
+    "eventemitter",
+    "eventbus",
+    "event",
+    "bus",
+    "bus"
+  ],
+  "jest": {
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  },
+  "jest-junit": {
+    "outputDirectory": "./reports/junit",
+    "outputName": "js-test-results.xml"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "tests/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
