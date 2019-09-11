@@ -23,6 +23,11 @@ export class EventBus {
     return this.defaultChannel
   }
 
+  // alias
+  allChannels(): Channel {
+    return this.mainChannel()
+  }
+
   channel(name: string): Channel {
     var channel = this.channels[name]
     if (typeof channel === 'undefined') {
