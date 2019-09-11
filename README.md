@@ -295,5 +295,5 @@ mainChannel.topic('economy').addListener(event => {
 })
 ```
 
-`Estacion` is written in TypeScript
+`Estacion` is written in TypeScript take a look at
 [Auto Generated API Docs](https://github.com/ivandotv/estacion/blob/master/docs/README.md)
