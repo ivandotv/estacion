@@ -201,7 +201,8 @@ Remove all listeners from the `channel` or `topic`:
 channelOrTopic.removeAllListeners()
 ```
 
-Also by destroying `channel` or `topic` all listeners will be automatically unsubscribed
+Also by destroying `channel` or `topic` all listeners will be automatically unsubscribed.
+When destroying `channel` all topics in that channel will also be destroyed.
 
 ```js
 const eventBus = new EventBus()
@@ -217,6 +218,8 @@ ecologyTopic.addListener(event => {})
 
 // all listeners will be removed
 channel.destroy()
+
+// no need to call for this
 ecologyTopic.destory()
 ```
 
