@@ -55,7 +55,7 @@
 
 \+ **new Broadcaster**(`name`: string, `maxListeners`: number): *[Broadcaster](_broadcaster_.broadcaster.md)*
 
-*Defined in [broadcaster.ts:6](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L6)*
+*Defined in [broadcaster.ts:6](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L6)*
 
 **Parameters:**
 
@@ -72,7 +72,7 @@ Name | Type | Default |
 
 • **_name**: *string*
 
-*Defined in [broadcaster.ts:6](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L6)*
+*Defined in [broadcaster.ts:6](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L6)*
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 • **emitter**: *EventEmitter*
 
-*Defined in [broadcaster.ts:4](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L4)*
+*Defined in [broadcaster.ts:4](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L4)*
 
 ## Accessors
 
@@ -88,7 +88,7 @@ ___
 
 • **get name**(): *string*
 
-*Defined in [broadcaster.ts:17](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L17)*
+*Defined in [broadcaster.ts:17](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L17)*
 
 **Returns:** *string*
 
@@ -98,7 +98,7 @@ ___
 
 ▸ **_addListener**(`method`: string, `listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:91](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L91)*
+*Defined in [broadcaster.ts:91](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L91)*
 
 **Parameters:**
 
@@ -115,7 +115,7 @@ ___
 
 ▸ **_createUnsubscribe**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:85](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L85)*
+*Defined in [broadcaster.ts:85](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L85)*
 
 **Parameters:**
 
@@ -131,7 +131,7 @@ ___
 
 ▸ **_proxyListener**(`method`: string, `listener`: [Listener](../modules/_broadcaster_.md#listener)): *void*
 
-*Defined in [broadcaster.ts:81](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L81)*
+*Defined in [broadcaster.ts:81](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L81)*
 
 **Parameters:**
 
@@ -148,7 +148,7 @@ ___
 
 ▸ **addListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:25](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L25)*
+*Defined in [broadcaster.ts:25](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L25)*
 
 **Parameters:**
 
@@ -164,7 +164,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [broadcaster.ts:96](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L96)*
+*Defined in [broadcaster.ts:96](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L96)*
 
 **Returns:** *void*
 
@@ -174,7 +174,7 @@ ___
 
 ▸ **emit**(`payload`: [EventPayload](../interfaces/_broadcaster_.eventpayload.md)): *void*
 
-*Defined in [broadcaster.ts:21](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L21)*
+*Defined in [broadcaster.ts:21](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L21)*
 
 **Parameters:**
 
@@ -190,7 +190,7 @@ ___
 
 ▸ **getEventEmitter**(): *EventEmitter*
 
-*Defined in [broadcaster.ts:65](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L65)*
+*Defined in [broadcaster.ts:65](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L65)*
 
 **Returns:** *EventEmitter*
 
@@ -200,7 +200,7 @@ ___
 
 ▸ **getMaxListeners**(): *number*
 
-*Defined in [broadcaster.ts:57](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L57)*
+*Defined in [broadcaster.ts:57](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L57)*
 
 **Returns:** *number*
 
@@ -210,7 +210,7 @@ ___
 
 ▸ **listenerCount**(): *number*
 
-*Defined in [broadcaster.ts:77](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L77)*
+*Defined in [broadcaster.ts:77](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L77)*
 
 **Returns:** *number*
 
@@ -220,7 +220,7 @@ ___
 
 ▸ **listeners**(): *[Listener](../modules/_broadcaster_.md#listener)[]*
 
-*Defined in [broadcaster.ts:69](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L69)*
+*Defined in [broadcaster.ts:69](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L69)*
 
 **Returns:** *[Listener](../modules/_broadcaster_.md#listener)[]*
 
@@ -230,7 +230,7 @@ ___
 
 ▸ **off**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *void*
 
-*Defined in [broadcaster.ts:49](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L49)*
+*Defined in [broadcaster.ts:49](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L49)*
 
 **Parameters:**
 
@@ -246,7 +246,7 @@ ___
 
 ▸ **on**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:29](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L29)*
+*Defined in [broadcaster.ts:29](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L29)*
 
 **Parameters:**
 
@@ -262,7 +262,7 @@ ___
 
 ▸ **once**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:37](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L37)*
+*Defined in [broadcaster.ts:37](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L37)*
 
 **Parameters:**
 
@@ -278,7 +278,7 @@ ___
 
 ▸ **prependListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:33](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L33)*
+*Defined in [broadcaster.ts:33](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L33)*
 
 **Parameters:**
 
@@ -294,7 +294,7 @@ ___
 
 ▸ **prependOnceListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
-*Defined in [broadcaster.ts:41](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L41)*
+*Defined in [broadcaster.ts:41](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L41)*
 
 **Parameters:**
 
@@ -310,7 +310,7 @@ ___
 
 ▸ **rawListeners**(): *[Listener](../modules/_broadcaster_.md#listener)[]*
 
-*Defined in [broadcaster.ts:73](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L73)*
+*Defined in [broadcaster.ts:73](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L73)*
 
 **Returns:** *[Listener](../modules/_broadcaster_.md#listener)[]*
 
@@ -320,7 +320,7 @@ ___
 
 ▸ **removeAllListeners**(): *void*
 
-*Defined in [broadcaster.ts:53](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L53)*
+*Defined in [broadcaster.ts:53](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L53)*
 
 **Returns:** *void*
 
@@ -330,7 +330,7 @@ ___
 
 ▸ **removeListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *void*
 
-*Defined in [broadcaster.ts:45](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L45)*
+*Defined in [broadcaster.ts:45](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L45)*
 
 **Parameters:**
 
@@ -346,7 +346,7 @@ ___
 
 ▸ **setMaxListeners**(`n`: number): *void*
 
-*Defined in [broadcaster.ts:61](https://github.com/ivandotv/estacion/blob/66215a0/src/broadcaster.ts#L61)*
+*Defined in [broadcaster.ts:61](https://github.com/ivandotv/estacion/blob/db9e870/src/broadcaster.ts#L61)*
 
 **Parameters:**
 
