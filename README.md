@@ -296,3 +296,16 @@ mainChannel.topic('economy').addListener(event => {
 ```
 
 `Estacion` is written in TypeScript, [auto generated API docs](https://github.com/ivandotv/estacion/blob/master/docs/api/README.md) are available.
+
+### Authors
+
+- **Ivan Vlatković**
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+### Acknowledgments
+
+- Inspiration
+  - [Google Guava EventBus (written in Java)](https://github.com/google/guava/wiki/EventBusExplained)
