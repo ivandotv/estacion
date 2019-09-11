@@ -4,3 +4,4 @@ node_modules
 /types
 /.buildcache
 /.vscode/settings.json
+/test-docs

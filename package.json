@@ -56,6 +56,8 @@
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.1.11",
     "typescript": "^3.6.2"
   },
   "directories": {
