@@ -49,16 +49,9 @@ usersChannel.addListener(listener)
 // or add listener to the channel topic
 userAdded.addListener(listener)
 
-// emit event on the channel
-const customPayload = {} // whatever you like
-usersChannel.emit(customPayload)
-
-// or emit event on the topic
-userAdded.emit({ name: 'Sam', lastName: 'Fisher' })
-
 // advanced
 // subscribe to all channels and topics (more in the docs)
-bus.mainChannel().addListener(event)
+bus.mainChannel().addListener(listener)
 
 // advanced
 // subscribe to all channels but only for a particular topic
@@ -66,10 +59,19 @@ bus.mainChannel().addListener(event)
 bus
   .mainChannel()
   .topic('game_end')
-  .addListener(event)
+  .addListener(listener)
+
+// emit event on the channel
+const customPayload = {} // whatever you like
+usersChannel.emit(customPayload)
+
+// or emit event on the topic
+userAdded.emit({ name: 'Sam', lastName: 'Fisher' })
 ```
 
 > skip to [`mainChannel`](#Eventbus-main-channel) explanation
+
+> example on [runkit](https://runkit.com/ivandotv/estacion-example)
 
 Setup is really simple:
 
