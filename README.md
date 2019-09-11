@@ -8,6 +8,10 @@
 
 Your search for the event bus implementation is over.
 
+Estacion is made on top of native node `EventEmitter` class.
+
+It can be used in the browser via [`events`](https://www.npmjs.com/package/events) module which is automatically included by the bundlers like `webpack` and `browserify`.
+
 ## Instalation
 
 ```js
