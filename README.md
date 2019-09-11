@@ -63,7 +63,7 @@ bus
   .addListener(event)
 ```
 
-> skip to [`mainChannel`](#Event-bus-main-channel) explanation
+> skip to [`mainChannel`](#Eventbus-main-channel) explanation
 
 Setup is really simple:
 
@@ -269,6 +269,7 @@ const mainChannel = eventBus().mainChannel()
 //subcribe to all channels and all topics
 mainChannel.addListener(event => {
   console.log(event.channel) // 'one' or 'two'
+  console.log(event.topic) // any topic from  channels 'one' or 'two'
   console.log(event.payload) // {name: 'Sam'} or {name: 'Jack'}
 })
 ```
@@ -294,4 +295,5 @@ mainChannel.topic('economy').addListener(event => {
 })
 ```
 
+`Estacion` is written in TypeScript
 [Auto Generated API Docs](https://github.com/ivandotv/estacion/blob/master/docs/README.md)
