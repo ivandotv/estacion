@@ -120,7 +120,7 @@ export interface EventPayload {
    *
    * @type {*}
    */
-  readonly payload: any
+  readonly payload?: any | undefined
 }
 
 /**

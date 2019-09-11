@@ -1,5 +1,5 @@
 {
-  "name": "event-bus",
+  "name": "estacion",
   "version": "1.0.0",
   "description": "Event bus implementation made on top of native node events module",
   "main": "lib",
@@ -11,8 +11,8 @@
   "scripts": {
     "prepublishOnly": "npm run compile && npm run test",
     "test": "jest --verbose --coverage --no-cache",
-    "test:watch": "jest --watch --testMatch",
-    "ci:test": "jest --maxWorkers=1 --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
+    "test:watch": "jest --watch",
+    "ci:test": "jest --runInBand --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
     "format": "prettier --write \"{./src,./tests}/**/*\"",
     "fix:src": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\"",
     "fix:tests": "eslint --fix \"./tests/**/*.{js,jsx,ts,tsx}\"",
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivandotv/node-event-bus.git"
+    "url": "git+https://github.com/ivandotv/estacion.git"
   },
   "author": "Ivan Vlatkovic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ivandotv/node-event-bus/issues"
+    "url": "https://github.com/ivandotv/estacion/issues"
   },
-  "homepage": "https://github.com/ivandotv/node-event-bus#readme",
+  "homepage": "https://github.com/ivandotv/estacion#readme",
   "peerDependencies": {
     "events": ">=2.0.0"
   },

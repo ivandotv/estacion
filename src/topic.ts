@@ -1,4 +1,4 @@
-import { Broadcaster, EventPayload } from './broadcaster'
+import { Broadcaster } from './broadcaster'
 
 export class Topic extends Broadcaster {
   channel: string
@@ -8,7 +8,7 @@ export class Topic extends Broadcaster {
     this.channel = channel
   }
 
-  emit(payload: EventPayload): void {
+  emit(payload: any | undefined): void {
     const payloadData = {
       channel: this.channel,
       topic: this.name,

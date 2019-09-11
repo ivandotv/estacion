@@ -1,5 +1,3 @@
-// var Broadcaster = require("./broadcaster")
-// var Topic = require("./topic")
 import { Broadcaster, EventPayload } from './broadcaster'
 import { Topic } from './topic'
 
@@ -14,7 +12,7 @@ export class Channel extends Broadcaster {
     this._onTopicEmit = this._onTopicEmit.bind(this)
   }
 
-  emit(payload: EventPayload): void {
+  emit(payload: any | undefined): void {
     var payloadData = {
       channel: this.name,
       topic: '',
