@@ -2,17 +2,25 @@
 
 Your search for event bus implementation is over.
 
-## TODO Mozda ubaciti table of contents
+## Instalation
+
+```js
+npm install estacion
+```
 
 ## Example
 
 ```js
+const { EventBus } = require('estacion')
+
+// or import { EventBus } from 'estacion'
+
 // create event bus
-const eventBus = new EventBus()
+const bus = new EventBus()
 
 // create channels
-const usersChannel = eventBus.channel('users')
-const gamesChannel = eventBus.channel('games')
+const usersChannel = bus.channel('users')
+const gamesChannel = bus.channel('games')
 
 // create topics for the channel (optional)
 const userAdded = usersChannel.topic('user_added')
@@ -44,29 +52,31 @@ userAdded.emit({ name: 'Sam', lastName: 'Fisher' })
 
 // advanced
 // subscribe to all channels and topics (more in the docs)
-eventBus.mainChannel().addListener(event)
+bus.mainChannel().addListener(event)
 
 // advanced
 // subscribe to all channels but only for a particular topic
 // now you will listen to 'game_end' on any channel
-eventBus
+bus
   .mainChannel()
   .topic('game_end')
   .addListener(event)
 ```
 
+> skip to [`mainChannel`](#Event-bus-main-channel) explanation
+
 Setup is really simple:
 
-- EventBus holds channels.
-- Channel holds topics.
-- You can add listeners to channels or topics.
-
-## TODO TOC - ovde
+1. EventBus holds channels.
+2. Channels hold topics.
+3. Add listeners to channels or topics.
 
 ## EventBus
 
 `EventBus` is used for creating and removing channels. You can create
-any number of channels. `EventBus` is not a singleton, you can create any number of `EventBus` instances.
+any number of channels.
+
+`EventBus` is not a singleton, you can create any number of `EventBus` instances.
 
 ```js
 const eventBus = new EventBus()
@@ -82,7 +92,7 @@ const eventBus.removeChannel('nbc')
 ## Channel
 
 `Channel` can create and remove `topics`. You can add listeners directly to the `channel` or you can add listeners to the particular `topic`.
-When you add listener to the channel directly, you will be notified for all events that are dispatched via `topics` for that channel, and also when the `channel` itself emits ( `event.topic` will be set to `'*'` ).
+When you add a listener to the channel directly, you will be notified for all events that are dispatched via `topics` for that channel, and also when the `channel` itself emits ( `event.topic` will be set to `'*'` ).
 
 ```js
 // create event bus
@@ -96,11 +106,24 @@ const economyTopic = channel.topic('economy')
 const sportsTopic = channel.topic('sports')
 
 // listen to all topics ( addListener directly to the channel)
-channel.addListener(event => {
+const listener = event => {
   console.log(event.channel) // 'nbc'
   console.log(event.topic) // 'economy' or 'sports' or '*'
   console.log(event.payload) // custom data from the topics
+}
+
+channel.addListener(listener)
+
+economyTopic.addListener(event => {
+  console.log(event.channel) // 'nbc'
+  console.log(event.topic) // 'economy'
+  console.log(event.payload) // custom data from 'economy' topic
 })
+
+//remove all listeners from the channel ( including listeners on all topics)
+channel.removeAllListeners()
+// or particular listener
+channel.removeListener(listener)
 ```
 
 ## Topic
@@ -117,32 +140,37 @@ const channel = eventBus.channel('nbc')
 // create topics on the channel
 const ecologyTopic = channel.topic('ecology')
 
-// listen to all topics ( addListener directly to the channel)
-ecologyTopic.addListener(event => {
+const listener = event => {
   console.log(event.channel) // 'nbc'
-  console.log(event.topic) // 'economy'
+  console.log(event.topic) // 'ecology'
   console.log(event.payload.title) // 'Climate change is real'
   console.log(event.payload.content) // 'Lorem ipsum'
-})
+}
 
+// listen to 'ecology' topic
+ecologyTopic.addListener(listener)
+
+// emit data
 ecologyTopic.emit({ title: 'Climate change is real.', content: 'Lorem ipsum' })
 
-channel.removeTopic('ecology') //all listeners will be automatically unsubscribed
-// or
+channel.removeTopic('ecology') //all listeners will be automatically removed
+
+// or remove listener directly from the topic
+ecologyTopic.removeListener(listener)
 ```
 
 ## Subscribe
 
-`Channel` and `Topic` classes both inherit from the `Broadcaster` class, which wraps the native `EventEmitter` and exposes some of the it's methods.
+`Channel` and `Topic` classes both inherit from the `Broadcaster` class, which wraps the native `EventEmitter` and exposes some of its methods.
 You can subscribe to the `channel` or `topic` via these methods:
 
 ```js
 const listener = event => {}
 channelOrTopic.addListener(listener)
 channelOrTopic.on(listener) // alias for addListener
-channelOrTopic.prependListener(listener)
-channelOrTopic.once(listener)
-channelOrTopic.prependOnceListener(listener)
+channelOrTopic.prependListener(listener) // be first to be notified
+channelOrTopic.once(listener) // fire only once
+channelOrTopic.prependOnceListener(listener) // be first to be notified only once
 ```
 
 Listener function accepts one parameter`EventPayload` .
@@ -201,7 +229,7 @@ Remove all listeners from the `channel` or `topic`:
 channelOrTopic.removeAllListeners()
 ```
 
-Also by destroying `channel` or `topic` all listeners will be automatically unsubscribed.
+Also by destroying `channel` or `topic`, all listeners will be automatically unsubscribed.
 When destroying `channel` all topics in that channel will also be destroyed.
 
 ```js
@@ -223,7 +251,7 @@ channel.destroy()
 ecologyTopic.destory()
 ```
 
-### EventBus main channel
+## EventBus main channel
 
 There is a special channel on the `EventBus` that is created automatically with every `EventBus` instance. This special channel is used for listening to all other **channels** via just one subscribe call.
 
@@ -240,22 +268,19 @@ const mainChannel = eventBus().mainChannel()
 
 //subcribe to all channels and all topics
 mainChannel.addListener(event => {
-  console.log(event.channel) // 'one' or 'two
+  console.log(event.channel) // 'one' or 'two'
   console.log(event.payload) // {name: 'Sam'} or {name: 'Jack'}
 })
 ```
 
 You can also subscribe to the particular `topics` that are emitted
-from any channel. In the next example you will subscribe to the 'economy' topic on any channel and nothing else
+from any channel. In the next example, you will subscribe to the 'economy' topic on any channel and nothing else.
 
 ```js
 const eventBus = new EventBus()
 
 const channelOne = eventBus.channel('cnn')
 const channelTwo = eventBus.channel('nbc')
-
-channelOne.emit({ name: 'Sam' })
-channelTwo.emit({ name: 'Jack' })
 
 channelOne.topic('economy').emit()
 channelTwo.topic('economy').emit()
@@ -265,7 +290,7 @@ const mainChannel = eventBus().mainChannel()
 //subcribe to all channels but only 'economy` topic
 mainChannel.topic('economy').addListener(event => {
   console.log(event.channel) // 'one' or 'two
-  console.log(event.topic) // economy
+  console.log(event.topic) // 'economy' from both channels
 })
 ```
 
