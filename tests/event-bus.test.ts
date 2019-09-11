@@ -2,7 +2,7 @@ import { EventBus } from '../src/event-bus'
 let eventBus
 
 beforeEach(() => {
-  eventBus = new EventBus(undefined)
+  eventBus = new EventBus()
 })
 
 describe('Event Bus', () => {
@@ -54,120 +54,137 @@ describe('Event Bus', () => {
       }).toThrow()
     })
   })
-
-  describe('Reemit payloads on default channel ', () => {
-    test('directly from channel', () => {
-      const payload = {
-        propOne: 'one',
-      }
-      const channelName = 'test'
+  describe('Default channel', () => {
+    test('recreate default channel if destroyed', () => {
       const listener = jest.fn()
-      const channel = eventBus.channel(channelName)
-      eventBus.mainChannel().addListener(listener)
-      const payLoadEvent = {
-        channel: channelName,
-        topic: '*',
-        payload: payload,
-      }
+      eventBus.mainChannel().on(listener)
+      const listenerCount = eventBus.mainChannel().listenerCount()
 
-      channel.emit(payload)
+      eventBus.mainChannel().destroy()
+      eventBus.mainChannel().emit('test')
 
-      expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
+      expect(eventBus.mainChannel().listenerCount()).toBe(listenerCount - 1)
+      expect(listener).not.toBeCalled()
     })
-
-    test('from topic', () => {
-      const payload = {
-        propOne: 'one',
-      }
-      const channelName = 'rocket_launcher'
-      const topicName = 'rocket_fired'
-      const listener = jest.fn()
-      const channel = eventBus.channel(channelName)
-      const topic = channel.topic(topicName)
-      eventBus.channel('*').addListener(listener)
-      const payLoadEvent = {
-        channel: channelName,
-        topic: topicName,
-        payload: payload,
-      }
-
-      topic.emit(payload)
-
-      expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
+    test('allChannels() is alias for mainChannel()', () => {
+      const mainChannel = eventBus.mainChannel()
+      const allChannels = eventBus.allChannels()
+      expect(mainChannel).toBe(allChannels)
     })
-    test('to listeners on particular topic from any channel', () => {
-      const payload = {
-        propOne: 'one',
-      }
-      const topicListener = jest.fn()
-      const channelOneName = 'rocket_launcher'
-      const channelTwoName = 'rocket_launcher_ultra'
-      const topicName = 'rocket_fired'
-      const channelOne = eventBus.channel(channelOneName)
-      const channelTwo = eventBus.channel(channelTwoName)
-      const payLoadOneEvent = {
-        channel: channelOneName,
-        topic: topicName,
-        payload: payload,
-      }
-      const payLoadTwoEvent = {
-        channel: channelTwoName,
-        topic: topicName,
-        payload: payload,
-      }
-      // two different channels with the same topic
-      const topicOne = channelOne.topic(topicName)
-      const topicTwo = channelTwo.topic(topicName)
+    describe('Reemit payloads on default channel ', () => {
+      test('directly from channel', () => {
+        const payload = {
+          propOne: 'one',
+        }
+        const channelName = 'test'
+        const listener = jest.fn()
+        const channel = eventBus.channel(channelName)
+        eventBus.mainChannel().addListener(listener)
+        const payLoadEvent = {
+          channel: channelName,
+          topic: '*',
+          payload: payload,
+        }
 
-      // add listener to default channel
-      var defaultChannelTopic = eventBus.channel('*').topic(topicName)
+        channel.emit(payload)
 
-      defaultChannelTopic.addListener(topicListener)
+        expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
+      })
 
-      topicOne.emit(payload)
-      topicTwo.emit(payload)
+      test('from topic', () => {
+        const payload = {
+          propOne: 'one',
+        }
+        const channelName = 'rocket_launcher'
+        const topicName = 'rocket_fired'
+        const listener = jest.fn()
+        const channel = eventBus.channel(channelName)
+        const topic = channel.topic(topicName)
+        eventBus.channel('*').addListener(listener)
+        const payLoadEvent = {
+          channel: channelName,
+          topic: topicName,
+          payload: payload,
+        }
 
-      expect(topicListener.mock.calls[0][0]).toEqual(
-        expect.objectContaining(payLoadOneEvent)
-      )
-      expect(topicListener.mock.calls[1][0]).toEqual(
-        expect.objectContaining(payLoadTwoEvent)
-      )
-    })
+        topic.emit(payload)
 
-    test('to listeners on particular topic from any channel only once', () => {
-      const payload = {
-        propOne: 'one',
-      }
-      const topicListener = jest.fn()
-      const channelOneName = 'rocket_launcher'
-      const channelTwoName = 'rocket_launcher_ultra'
-      const topicName = 'rocket_fired'
-      const channelOne = eventBus.channel(channelOneName)
-      const channelTwo = eventBus.channel(channelTwoName)
-      const payLoadOneEvent = {
-        channel: channelOneName,
-        topic: topicName,
-        payload: payload,
-      }
-      // two different channels with the same topic
-      const topicOne = channelOne.topic(topicName)
-      const topicTwo = channelTwo.topic(topicName)
+        expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
+      })
+      test('to listeners on particular topic from any channel', () => {
+        const payload = {
+          propOne: 'one',
+        }
+        const topicListener = jest.fn()
+        const channelOneName = 'rocket_launcher'
+        const channelTwoName = 'rocket_launcher_ultra'
+        const topicName = 'rocket_fired'
+        const channelOne = eventBus.channel(channelOneName)
+        const channelTwo = eventBus.channel(channelTwoName)
+        const payLoadOneEvent = {
+          channel: channelOneName,
+          topic: topicName,
+          payload: payload,
+        }
+        const payLoadTwoEvent = {
+          channel: channelTwoName,
+          topic: topicName,
+          payload: payload,
+        }
+        // two different channels with the same topic
+        const topicOne = channelOne.topic(topicName)
+        const topicTwo = channelTwo.topic(topicName)
 
-      // add listener to default channel
-      var defaultChannelTopic = eventBus.channel('*').topic(topicName)
+        // add listener to default channel
+        var defaultChannelTopic = eventBus.channel('*').topic(topicName)
 
-      defaultChannelTopic.once(topicListener)
+        defaultChannelTopic.addListener(topicListener)
 
-      topicOne.emit(payload)
-      topicTwo.emit(payload)
-      topicOne.emit(payload)
-      topicTwo.emit(payload)
+        topicOne.emit(payload)
+        topicTwo.emit(payload)
 
-      expect(topicListener).toBeCalledTimes(1)
-      expect(topicListener.mock.calls[0][0]).toEqual(
-        expect.objectContaining(payLoadOneEvent)
-      )
+        expect(topicListener.mock.calls[0][0]).toEqual(
+          expect.objectContaining(payLoadOneEvent)
+        )
+        expect(topicListener.mock.calls[1][0]).toEqual(
+          expect.objectContaining(payLoadTwoEvent)
+        )
+      })
+
+      test('to listeners on particular topic from any channel only once', () => {
+        const payload = {
+          propOne: 'one',
+        }
+        const topicListener = jest.fn()
+        const channelOneName = 'rocket_launcher'
+        const channelTwoName = 'rocket_launcher_ultra'
+        const topicName = 'rocket_fired'
+        const channelOne = eventBus.channel(channelOneName)
+        const channelTwo = eventBus.channel(channelTwoName)
+        const payLoadOneEvent = {
+          channel: channelOneName,
+          topic: topicName,
+          payload: payload,
+        }
+        // two different channels with the same topic
+        const topicOne = channelOne.topic(topicName)
+        const topicTwo = channelTwo.topic(topicName)
+
+        // add listener to default channel
+        var defaultChannelTopic = eventBus.channel('*').topic(topicName)
+
+        defaultChannelTopic.once(topicListener)
+
+        topicOne.emit(payload)
+        topicTwo.emit(payload)
+        topicOne.emit(payload)
+        topicTwo.emit(payload)
+
+        expect(topicListener).toBeCalledTimes(1)
+        expect(topicListener.mock.calls[0][0]).toEqual(
+          expect.objectContaining(payLoadOneEvent)
+        )
+      })
     })
   })
   describe('Destroy', () => {

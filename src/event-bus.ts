@@ -3,20 +3,29 @@ import { EventPayload } from './broadcaster'
 export class EventBus {
   private readonly _maxListeners: number
 
-  private readonly defaultChannel: Channel
+  private defaultChannel: Channel
 
   private channels: {
     [key: string]: Channel | undefined
   } = {}
 
-  constructor(config: EventBusConfig) {
+  constructor(config?: EventBusConfig | undefined) {
     config = typeof config === 'undefined' ? {} : config
     this._maxListeners =
       config.maxListeners === undefined ? 0 : config.maxListeners
+    this.onChannelDestroyed = this.onChannelDestroyed.bind(this)
+    this.createMainChannel()
+    this.onChannelEmit = this.onChannelEmit.bind(this)
+  }
+
+  private createMainChannel(): void {
     this.defaultChannel = new Channel('*', this._maxListeners)
     this.channels['*'] = this.defaultChannel
-    this.onChannelDestroyed = this.onChannelDestroyed.bind(this)
-    this.onChannelEmit = this.onChannelEmit.bind(this)
+    this.defaultChannel
+      .getEventEmitter()
+      .on('channel_destroyed', (name: string) => {
+        this.createMainChannel()
+      })
   }
 
   mainChannel(): Channel {
@@ -54,7 +63,7 @@ export class EventBus {
     }
   }
 
-  /* when any channel emit, reemit on default channel  */
+  /* when any channel emits, reemit on default channel  */
   private onChannelEmit(payload: EventPayload): void {
     const topicName = payload.topic
     if (this.defaultChannel.hasTopic(topicName)) {
