@@ -100,7 +100,7 @@ export class Broadcaster {
 }
 
 /**
- * Payload interface that should be emitted.
+ * Payload interface that is emitter from the events
  */
 export interface EventPayload {
   /**
