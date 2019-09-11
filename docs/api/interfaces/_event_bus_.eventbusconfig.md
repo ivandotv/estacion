@@ -22,7 +22,7 @@ Configuration interface for EventBus instance.
 
 • **maxListeners**? : *number*
 
-*Defined in [event-bus.ts:110](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L110)*
+*Defined in [event-bus.ts:110](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L110)*
 
 Default number of listeners allowed for all channels and topics.
 Zero(0) represents unlimited.

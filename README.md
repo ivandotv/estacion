@@ -295,4 +295,4 @@ mainChannel.topic('economy').addListener(event => {
 })
 ```
 
-`Estacion` is written in TypeScript, [auto generated API docs](https://github.com/ivandotv/estacion/blob/master/docs/README.md) are available.
+`Estacion` is written in TypeScript, [auto generated API docs](https://github.com/ivandotv/estacion/blob/master/docs/api/README.md) are available.

@@ -18,7 +18,7 @@
     "fix:tests": "eslint --fix \"./tests/**/*.{js,jsx,ts,tsx}\"",
     "fix": "npm-run-all -p fix:*",
     "clean": "del lib",
-    "docs": "del docs && typedoc --theme markdown --readme none --out docs ./src",
+    "docs": "del docs && typedoc --theme markdown --readme none --out docs/api ./src",
     "compile": "npm run clean && tsc --tsBuildInfoFile ./.buildcache/lib.tsbuildinfo"
   },
   "engines": {

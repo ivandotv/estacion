@@ -38,7 +38,7 @@
 
 \+ **new EventBus**(`config?`: [EventBusConfig](../interfaces/_event_bus_.eventbusconfig.md) | undefined): *[EventBus](_event_bus_.eventbus.md)*
 
-*Defined in [event-bus.ts:10](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L10)*
+*Defined in [event-bus.ts:10](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L10)*
 
 **Parameters:**
 
@@ -54,7 +54,7 @@ Name | Type |
 
 • **_maxListeners**: *number*
 
-*Defined in [event-bus.ts:4](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L4)*
+*Defined in [event-bus.ts:4](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L4)*
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **channels**: *object*
 
-*Defined in [event-bus.ts:8](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L8)*
+*Defined in [event-bus.ts:8](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L8)*
 
 #### Type declaration:
 
@@ -74,7 +74,7 @@ ___
 
 • **defaultChannel**: *[Channel](_channel_.channel.md)*
 
-*Defined in [event-bus.ts:6](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L6)*
+*Defined in [event-bus.ts:6](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L6)*
 
 ## Methods
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **allChannels**(): *[Channel](_channel_.channel.md)*
 
-*Defined in [event-bus.ts:36](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L36)*
+*Defined in [event-bus.ts:36](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L36)*
 
 **Returns:** *[Channel](_channel_.channel.md)*
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **channel**(`name`: string): *[Channel](_channel_.channel.md)*
 
-*Defined in [event-bus.ts:40](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L40)*
+*Defined in [event-bus.ts:40](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L40)*
 
 **Parameters:**
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **createMainChannel**(): *void*
 
-*Defined in [event-bus.ts:21](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L21)*
+*Defined in [event-bus.ts:21](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L21)*
 
 **Returns:** *void*
 
@@ -118,7 +118,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [event-bus.ts:92](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L92)*
+*Defined in [event-bus.ts:92](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L92)*
 
 **Returns:** *void*
 
@@ -128,7 +128,7 @@ ___
 
 ▸ **hasChannel**(`name`: string): *boolean*
 
-*Defined in [event-bus.ts:51](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L51)*
+*Defined in [event-bus.ts:51](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L51)*
 
 **Parameters:**
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **mainChannel**(): *[Channel](_channel_.channel.md)*
 
-*Defined in [event-bus.ts:31](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L31)*
+*Defined in [event-bus.ts:31](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L31)*
 
 **Returns:** *[Channel](_channel_.channel.md)*
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **onChannelDestroyed**(`name`: string): *void*
 
-*Defined in [event-bus.ts:88](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L88)*
+*Defined in [event-bus.ts:88](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L88)*
 
 **Parameters:**
 
@@ -170,7 +170,7 @@ ___
 
 ▸ **onChannelEmit**(`payload`: [EventPayload](../interfaces/_broadcaster_.eventpayload.md)): *void*
 
-*Defined in [event-bus.ts:67](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L67)*
+*Defined in [event-bus.ts:67](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L67)*
 
 **Parameters:**
 
@@ -186,7 +186,7 @@ ___
 
 ▸ **removeChannel**(`name`: string): *void*
 
-*Defined in [event-bus.ts:55](https://github.com/ivandotv/estacion/blob/db9e870/src/event-bus.ts#L55)*
+*Defined in [event-bus.ts:55](https://github.com/ivandotv/estacion/blob/380efed/src/event-bus.ts#L55)*
 
 **Parameters:**
 
