@@ -1,7 +1,6 @@
 # Estacion
 
 Your search for event bus implementation is over.
-[test api link](https://github.com/ivandotv/estacion/docs/README.md)
 
 ## TODO Mozda ubaciti table of contents
 
@@ -269,3 +268,5 @@ mainChannel.topic('economy').addListener(event => {
   console.log(event.topic) // economy
 })
 ```
+
+[Auto Generated API Docs](https://github.com/ivandotv/estacion/blob/master/docs/README.md)
