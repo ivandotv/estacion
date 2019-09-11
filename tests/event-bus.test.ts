@@ -63,10 +63,10 @@ describe('Event Bus', () => {
       const channelName = 'test'
       const listener = jest.fn()
       const channel = eventBus.channel(channelName)
-      eventBus.channel('*').addListener(listener)
+      eventBus.mainChannel().addListener(listener)
       const payLoadEvent = {
         channel: channelName,
-        topic: '',
+        topic: '*',
         payload: payload,
       }
 

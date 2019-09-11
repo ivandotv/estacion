@@ -14,7 +14,7 @@ describe('Channel', () => {
   test('emit', () => {
     const expectedPayload = {
       channel: channel.name,
-      topic: '',
+      topic: '*',
       payload: payload,
     }
     const listener = jest.fn()

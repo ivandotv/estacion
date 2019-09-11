@@ -15,7 +15,7 @@ export class Channel extends Broadcaster {
   emit(payload: any | undefined): void {
     var payloadData = {
       channel: this.name,
-      topic: '',
+      topic: '*',
       payload: payload,
     }
 
