@@ -1,10 +1,14 @@
-import { Broadcaster } from '../src/broadcaster'
+import { Broadcaster, EventPayload, Listener } from '../src/index'
 
-let broadcaster, listener, payload
+let broadcaster: Broadcaster, listener: Listener, payload: EventPayload
 
 beforeEach(() => {
   payload = {
-    propOne: 'one',
+    channel: 'test_channel',
+    topic: 'test_topic',
+    payload: {
+      propOne: 'one',
+    },
   }
   listener = jest.fn()
   broadcaster = new Broadcaster('test')

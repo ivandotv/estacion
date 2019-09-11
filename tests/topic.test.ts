@@ -1,12 +1,20 @@
-import { Topic } from '../src/topic'
-let topic, listener, payload, topicName, channelName
+import { EventPayload, Listener, Topic } from '../src/index'
+let topic: Topic,
+  listener: Listener,
+  payload: EventPayload,
+  topicName: string,
+  channelName: string
 
 beforeEach(() => {
-  payload = {
-    propOne: 'one',
-  }
   channelName = 'rocketLaunch'
   topicName = 'rocketLanded'
+  payload = {
+    channel: channelName,
+    topic: topicName,
+    payload: {
+      propOne: 'one',
+    },
+  }
   listener = jest.fn()
   topic = new Topic(topicName, channelName)
 })

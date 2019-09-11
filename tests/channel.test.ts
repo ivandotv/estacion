@@ -1,13 +1,15 @@
-import { Channel } from '../src/channel'
-import { Topic } from '../src/topic'
-
-let channel, channelName, payload
+import { Channel, EventPayload, Topic } from '../src/index'
+let channel: Channel, channelName: string, payload: EventPayload
 
 beforeEach(() => {
+  channelName = 'dancer'
   payload = {
-    propOne: 'one',
+    channel: channelName,
+    topic: 'test_topic',
+    payload: {
+      propOne: 'one',
+    },
   }
-  channelName = 'Dancer'
   channel = new Channel(channelName)
 })
 describe('Channel', () => {

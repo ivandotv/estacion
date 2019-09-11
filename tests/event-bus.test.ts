@@ -1,5 +1,5 @@
-import { EventBus } from '../src/event-bus'
-let eventBus
+import { EventBus } from '../src/index'
+let eventBus: EventBus
 
 beforeEach(() => {
   eventBus = new EventBus()
