@@ -75,13 +75,14 @@ export class EventBus {
   }
 
   /**
-   * Remove channel.
+   * Remove the channel.
    * All listeners for the channel on all topics emitted from the channel
    * are automatically removed.
    *
    * @param  name channel name
+   * @returns true if the channel has been removed successfully
    */
-  removeChannel(name: string): void {
+  removeChannel(name: string): boolean {
     if (name === '*') {
       throw new Error("Can't remove default channel")
     }
@@ -89,7 +90,9 @@ export class EventBus {
     /* istanbul ignore else */
     if (typeof channel !== 'undefined') {
       channel.destroy()
+      return true
     }
+    return false
   }
 
   /* when any channel emits, reemit on default channel  */
