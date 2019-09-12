@@ -34,12 +34,18 @@ describe('Event Bus', () => {
       const channel = eventBus.channel(channelName)
       const channelDestroySpy = jest.spyOn(channel, 'destroy')
 
-      eventBus.removeChannel(channelName)
+      const removed = eventBus.removeChannel(channelName)
 
       expect(channelDestroySpy).toBeCalled()
       expect(eventBus.hasChannel(channelName)).toBe(false)
+      expect(removed).toBe(true)
     })
 
+    test('remove channel that does not exist ', () => {
+      const removed = eventBus.removeChannel('test')
+
+      expect(removed).toBe(false)
+    })
     test('get default channel via mainChannel()', () => {
       const channel = eventBus.mainChannel()
 
