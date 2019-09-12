@@ -1,5 +1,9 @@
 import { Channel } from './channel'
 import { EventPayload } from './broadcaster'
+/**
+ * Class representing the EventBus.
+ * Main purpose is creating and removing channels
+ */
 export class EventBus {
   private readonly _maxListeners: number
 
@@ -28,14 +32,27 @@ export class EventBus {
       })
   }
 
+  /**
+   * Return main (default channel) for the  EventBus instance.
+   * On main channel are able to listen to
+   * events emitted from all other channels and topics.
+   */
   mainChannel(): Channel {
     return this.defaultChannel
   }
 
-  // alias
+  /**
+   * Alias for {@link EventBus.mainChannel}
+   */
   allChannels(): Channel {
     return this.mainChannel()
   }
+  /**
+   * Create and return the channel with the specified name.
+   * If the channel does not exist it will be created.
+   *
+   * @param name channel name
+   */
 
   channel(name: string): Channel {
     var channel = this.channels[name]
@@ -48,10 +65,22 @@ export class EventBus {
     return channel
   }
 
+  /**
+   * Check if the channel exists.
+   *
+   * @param name channel name
+   */
   hasChannel(name: string): boolean {
     return Boolean(this.channels[name])
   }
 
+  /**
+   * Remove channel.
+   * All listeners for the channel on all topics emitted from the channel
+   * are automatically removed.
+   *
+   * @param  name channel name
+   */
   removeChannel(name: string): void {
     if (name === '*') {
       throw new Error("Can't remove default channel")
@@ -89,6 +118,11 @@ export class EventBus {
     this.channels[name] = null
   }
 
+  /**
+   * Destroy the instance.
+   * All channels and all topics are automatically destroyed.
+   * All listeners from channels and topics are removed.
+   */
   destroy(): void {
     for (var channel in this.channels) {
       this.channels[channel].destroy()
@@ -98,7 +132,7 @@ export class EventBus {
 }
 
 /**
- * Configuration interface for EventBus instance.
+ * Configuration for EventBus instance.
  */
 export declare interface EventBusConfig {
   /**

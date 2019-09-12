@@ -1,11 +1,19 @@
 import { Broadcaster, EventPayload } from './broadcaster'
 import { Topic } from './topic'
 
+/**
+ * Class that represents a channel for broadcasting via EventBus.
+ *
+ */
 export class Channel extends Broadcaster {
   topics: {
     [key: string]: Topic | undefined
   } = {}
 
+  /**
+   * @param  name channel name
+   * @param  maxListeners Maximum number of listeners allowd default value zero(0) - unlimited
+   */
   constructor(name: string, maxListeners: number = 0) {
     super(name, maxListeners)
     this._onTopicDestroyed = this._onTopicDestroyed.bind(this)
@@ -22,6 +30,11 @@ export class Channel extends Broadcaster {
     super.emit(payloadData)
   }
 
+  /**
+   * Create or return existing topic for the channel.
+   *
+   * @param name topic name
+   */
   topic(name: string): Topic {
     var topic = this.topics[name]
     if (typeof topic === 'undefined') {
@@ -37,10 +50,23 @@ export class Channel extends Broadcaster {
     return topic
   }
 
+  /**
+   * Check if topic exists.
+   *
+   * @param  name
+   * @returns  true if topic is found
+   */
   hasTopic(name: string): boolean {
     return Boolean(this.topics[name])
   }
 
+  /**
+   * Remove topic from the channel.
+   * All listeners for the topic are automatically removed.
+   *
+   * @param  name topic name
+   * @returns true if the topic has been successfully removed
+   */
   removeTopic(name: string): boolean {
     const topic = this.topics[name]
     /* istanbul ignore else */
@@ -62,6 +88,10 @@ export class Channel extends Broadcaster {
     this.topics[name] = null
   }
 
+  /**
+   * Destroy the instance
+   *
+   */
   destroy(): void {
     for (var topic in this.topics) {
       this.removeTopic(topic)
