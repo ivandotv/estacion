@@ -32,7 +32,7 @@ export class Broadcaster {
    * Synchronously calls each of the listeners registered for the event named eventName, in the order they were registered, passing the supplied arguments to each.
    * @param payload data to be passed to the listeners
    */
-  emit(payload: EventPayload): void {
+  emit(payload?: EventPayload | undefined): void {
     this.emitter.emit(this._name, payload)
   }
 

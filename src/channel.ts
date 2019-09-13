@@ -20,7 +20,7 @@ export class Channel extends Broadcaster {
     this._onTopicEmit = this._onTopicEmit.bind(this)
   }
 
-  emit(payload: any | undefined): void {
+  emit(payload?: any | undefined): void {
     var payloadData = {
       channel: this.name,
       topic: '*',
