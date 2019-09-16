@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "prepublishOnly": "npm run compile && npm run test",
+    "prepublishOnly": "npm run compile && npm run test && docs",
     "test": "jest --verbose --coverage --no-cache",
     "test:watch": "jest --watch",
     "ci:test": "jest --runInBand --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
