@@ -41,7 +41,7 @@ export class Broadcaster {
    * @param  listener to be added
    * @returns  function to remove the added listener
    */
-  addListener(listener: Listener): Subscription {
+  addListener<T>(listener: Listener<T>): Subscription {
     return this._addListener('addListener', listener)
   }
 
@@ -50,7 +50,7 @@ export class Broadcaster {
    * @param  listener to be subscribed
    * @returns  function to unsubscribe the listener
    */
-  on(listener: Listener): Subscription {
+  on<T>(listener: Listener<T>): Subscription {
     return this.addListener(listener)
   }
 
@@ -59,7 +59,7 @@ export class Broadcaster {
    * to be invoked first.
    * @returns  function to unsubscribe the listener
    */
-  prependListener(listener: Listener): Subscription {
+  prependListener<T>(listener: Listener<T>): Subscription {
     return this._addListener('prependListener', listener)
   }
 
@@ -67,7 +67,7 @@ export class Broadcaster {
    * Add listener to be called only once.
    * @returns  function to unsubscribe the listener
    */
-  once(listener: Listener): Subscription {
+  once<T>(listener: Listener<T>): Subscription {
     return this._addListener('once', listener)
   }
 
@@ -76,7 +76,7 @@ export class Broadcaster {
    * To be invoked first but only once.
    * @returns  function to unsubscribe the listener
    */
-  prependOnceListener(listener: Listener): Subscription {
+  prependOnceListener<T>(listener: Listener<T>): Subscription {
     return this._addListener('prependOnceListener', listener)
   }
 
@@ -181,31 +181,27 @@ export class Broadcaster {
 /**
  * Payload interface that is emitter from the events
  */
-export interface EventPayload {
+export interface EventPayload<T = any> {
   /**
    * Channel name.
-   *
-   * @type {string}
    */
   channel: string
   /**
    * Topic name.
    *
-   * @type {string}
    */
   topic: string
   /**
    * Payload - custom data to pass to the listeners
    *
-   * @type {*}
    */
-  readonly payload?: any | undefined
+  readonly payload?: T
 }
 
 /**
  * Listener interface for adding to Broadcaster.
  */
-export type Listener = (event: EventPayload) => void
+export type Listener<T = any | undefined> = (event: EventPayload<T>) => void
 
 /**
  * Subscription interface that is used for unsubscribing the listener that was previously subscribed.
