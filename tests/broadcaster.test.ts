@@ -24,7 +24,7 @@ describe('Broadcaster', () => {
     })
     test('throw if name not provided', () => {
       expect(() => {
-        broadcaster = new Broadcaster(undefined)
+        broadcaster = new Broadcaster((undefined as unknown) as string)
       }).toThrow('')
     })
   })
