@@ -7,7 +7,7 @@ import { EventPayload } from './broadcaster'
 export class EventBus {
   private readonly _maxListeners: number
 
-  private defaultChannel: Channel
+  private defaultChannel!: Channel
 
   private channels: {
     [key: string]: Channel | undefined
@@ -118,7 +118,7 @@ export class EventBus {
 
   /* Channel destroyed event: Remove destroyed channel from the pool  */
   private onChannelDestroyed(name: string): void {
-    this.channels[name] = null
+    this.channels[name] = undefined
   }
 
   /**
@@ -127,10 +127,9 @@ export class EventBus {
    * All listeners from channels and topics are removed.
    */
   destroy(): void {
-    for (var channel in this.channels) {
-      this.channels[channel].destroy()
+    for (const channel in this.channels) {
+      this.channels[channel]!.destroy()
     }
-    this.channels = null
   }
 }
 

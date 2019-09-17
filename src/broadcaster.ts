@@ -1,5 +1,14 @@
 import { EventEmitter } from 'events'
 
+type ListenerProxy = keyof Pick<
+  EventEmitter,
+  | 'addListener'
+  | 'on'
+  | 'once'
+  | 'prependListener'
+  | 'prependOnceListener'
+  | 'removeListener'
+>
 /**
  * Class that represents the parent class for `Channel` and `Topic` classes
  * It wrapps Node EventEmitter instance and exposes some of it's methods with
@@ -154,7 +163,7 @@ export class Broadcaster {
     return this.emitter.listenerCount(this._name)
   }
 
-  private _proxyListener(method: string, listener: Listener): void {
+  private _proxyListener(method: ListenerProxy, listener: Listener): void {
     this.emitter[method](this._name, listener)
   }
 
@@ -164,7 +173,10 @@ export class Broadcaster {
     }
   }
 
-  private _addListener(method: string, listener: Listener): Subscription {
+  private _addListener(
+    method: ListenerProxy,
+    listener: Listener
+  ): Subscription {
     this._proxyListener(method, listener)
     return this._createUnsubscribe(listener)
   }
@@ -174,7 +186,6 @@ export class Broadcaster {
    */
   destroy(): void {
     this.emitter.removeAllListeners()
-    this.emitter = null
   }
 }
 

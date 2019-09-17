@@ -71,7 +71,7 @@ export class Channel extends Broadcaster {
     const topic = this.topics[name]
     /* istanbul ignore else */
     if (typeof topic !== 'undefined') {
-      this.topics[name] = null
+      this.topics[name] = undefined
       topic.destroy()
       return true
     }
@@ -85,7 +85,7 @@ export class Channel extends Broadcaster {
 
   /* remove topic from the pool */
   private _onTopicDestroyed(name: string): void {
-    this.topics[name] = null
+    this.topics[name] = undefined
   }
 
   /**
@@ -96,7 +96,7 @@ export class Channel extends Broadcaster {
     for (var topic in this.topics) {
       this.removeTopic(topic)
     }
-    this.topics = null
+
     this.emitter.emit('channel_destroyed', this.name)
     super.destroy()
   }
