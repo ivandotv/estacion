@@ -6,7 +6,11 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['standard-with-typescript', 'prettier'],
+  extends: [
+    'standard-with-typescript',
+    'prettier',
+    'prettier/@typescript-eslint',
+  ],
   plugins: ['prettier'],
   globals: {
     Atomics: 'readonly',
@@ -32,5 +36,6 @@ module.exports = {
         accessibility: 'no-public',
       },
     ],
+    '@typescript-eslint/no-non-null-assertion': ['off'],
   },
 }
