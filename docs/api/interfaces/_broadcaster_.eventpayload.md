@@ -2,9 +2,13 @@
 
 [Globals](../README.md) › [&quot;broadcaster&quot;](../modules/_broadcaster_.md) › [EventPayload](_broadcaster_.eventpayload.md)
 
-# Interface: EventPayload
+# Interface: EventPayload <**T**>
 
 Payload interface that is emitter from the events
+
+## Type parameters
+
+▪ **T**
 
 ## Hierarchy
 
@@ -24,23 +28,19 @@ Payload interface that is emitter from the events
 
 • **channel**: *string*
 
-*Defined in [broadcaster.ts:190](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L190)*
+*Defined in [broadcaster.ts:199](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L199)*
 
 Channel name.
-
-**`type`** {string}
 
 ___
 
 ### `Optional` payload
 
-• **payload**? : *any | undefined*
+• **payload**? : *[T](undefined)*
 
-*Defined in [broadcaster.ts:202](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L202)*
+*Defined in [broadcaster.ts:209](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L209)*
 
 Payload - custom data to pass to the listeners
-
-**`type`** {*}
 
 ___
 
@@ -48,8 +48,6 @@ ___
 
 • **topic**: *string*
 
-*Defined in [broadcaster.ts:196](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L196)*
+*Defined in [broadcaster.ts:204](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L204)*
 
 Topic name.
-
-**`type`** {string}

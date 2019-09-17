@@ -25,19 +25,19 @@
 
 Ƭ **Listener**: *function*
 
-*Defined in [broadcaster.ts:208](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L208)*
+*Defined in [broadcaster.ts:215](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L215)*
 
 Listener interface for adding to Broadcaster.
 
 #### Type declaration:
 
-▸ (`event`: [EventPayload](../interfaces/_broadcaster_.eventpayload.md)): *void*
+▸ (`event`: [EventPayload](../interfaces/_broadcaster_.eventpayload.md)‹T›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [EventPayload](../interfaces/_broadcaster_.eventpayload.md) |
+`event` | [EventPayload](../interfaces/_broadcaster_.eventpayload.md)‹T› |
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 Ƭ **Subscription**: *function*
 
-*Defined in [broadcaster.ts:213](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L213)*
+*Defined in [broadcaster.ts:220](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L220)*
 
 Subscription interface that is used for unsubscribing the listener that was previously subscribed.
 

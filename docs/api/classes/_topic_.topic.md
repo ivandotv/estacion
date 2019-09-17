@@ -54,7 +54,7 @@ Class that reperesents topic for the channel.
 
 *Overrides [Broadcaster](_broadcaster_.broadcaster.md).[constructor](_broadcaster_.broadcaster.md#constructor)*
 
-*Defined in [topic.ts:7](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/topic.ts#L7)*
+*Defined in [topic.ts:7](https://github.com/ivandotv/estacion/blob/b673ec5/src/topic.ts#L7)*
 
 **Parameters:**
 
@@ -72,7 +72,7 @@ Name | Type | Default | Description |
 
 • **channel**: *string*
 
-*Defined in [topic.ts:7](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/topic.ts#L7)*
+*Defined in [topic.ts:7](https://github.com/ivandotv/estacion/blob/b673ec5/src/topic.ts#L7)*
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[emitter](_broadcaster_.broadcaster.md#emitter)*
 
-*Defined in [broadcaster.ts:10](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L10)*
+*Defined in [broadcaster.ts:19](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L19)*
 
 ## Accessors
 
@@ -92,7 +92,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[name](_broadcaster_.broadcaster.md#name)*
 
-*Defined in [broadcaster.ts:27](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L27)*
+*Defined in [broadcaster.ts:36](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L36)*
 
 **Returns:** *string*
 
@@ -100,19 +100,23 @@ ___
 
 ###  addListener
 
-▸ **addListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
+▸ **addListener**<**T**>(`listener`: [Listener](../modules/_broadcaster_.md#listener)‹T›): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[addListener](_broadcaster_.broadcaster.md#addlistener)*
 
-*Defined in [broadcaster.ts:44](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L44)*
+*Defined in [broadcaster.ts:53](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L53)*
 
 Add listener to the broadcaster.
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`listener` | [Listener](../modules/_broadcaster_.md#listener) | to be added |
+`listener` | [Listener](../modules/_broadcaster_.md#listener)‹T› | to be added |
 
 **Returns:** *[Subscription](../modules/_broadcaster_.md#subscription)*
 
@@ -126,7 +130,7 @@ ___
 
 *Overrides [Broadcaster](_broadcaster_.broadcaster.md).[destroy](_broadcaster_.broadcaster.md#destroy)*
 
-*Defined in [topic.ts:32](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/topic.ts#L32)*
+*Defined in [topic.ts:32](https://github.com/ivandotv/estacion/blob/b673ec5/src/topic.ts#L32)*
 
 Destroy the instance
 
@@ -140,7 +144,7 @@ ___
 
 *Overrides [Broadcaster](_broadcaster_.broadcaster.md).[emit](_broadcaster_.broadcaster.md#emit)*
 
-*Defined in [topic.ts:19](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/topic.ts#L19)*
+*Defined in [topic.ts:19](https://github.com/ivandotv/estacion/blob/b673ec5/src/topic.ts#L19)*
 
 **Parameters:**
 
@@ -158,7 +162,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[getEventEmitter](_broadcaster_.broadcaster.md#geteventemitter)*
 
-*Defined in [broadcaster.ts:129](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L129)*
+*Defined in [broadcaster.ts:138](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L138)*
 
 Get the underlying [ EventEmitter instance.](https://nodejs.org/api/events.html#events_class_eventemitter )
 
@@ -172,7 +176,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[getMaxListeners](_broadcaster_.broadcaster.md#getmaxlisteners)*
 
-*Defined in [broadcaster.ts:112](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L112)*
+*Defined in [broadcaster.ts:121](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L121)*
 
 Get maximum number of listeners that can be registered.
 [https://nodejs.org/api/events.html#events_emitter_getmaxlisteners](https://nodejs.org/api/events.html#events_emitter_getmaxlisteners)
@@ -187,7 +191,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[listenerCount](_broadcaster_.broadcaster.md#listenercount)*
 
-*Defined in [broadcaster.ts:153](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L153)*
+*Defined in [broadcaster.ts:162](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L162)*
 
 Get total number of listeners that are registered.
 
@@ -201,7 +205,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[listeners](_broadcaster_.broadcaster.md#listeners)*
 
-*Defined in [broadcaster.ts:136](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L136)*
+*Defined in [broadcaster.ts:145](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L145)*
 
 Returna a copy of the array of listeners.
 
@@ -215,7 +219,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[off](_broadcaster_.broadcaster.md#off)*
 
-*Defined in [broadcaster.ts:96](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L96)*
+*Defined in [broadcaster.ts:105](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L105)*
 
 Alias for [Broadcaster.removeListener](_broadcaster_.broadcaster.md#removelistener)
 
@@ -231,19 +235,23 @@ ___
 
 ###  on
 
-▸ **on**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
+▸ **on**<**T**>(`listener`: [Listener](../modules/_broadcaster_.md#listener)‹T›): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[on](_broadcaster_.broadcaster.md#on)*
 
-*Defined in [broadcaster.ts:53](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L53)*
+*Defined in [broadcaster.ts:62](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L62)*
 
 Alias of [Broadcaster.addListener](_broadcaster_.broadcaster.md#addlistener)
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`listener` | [Listener](../modules/_broadcaster_.md#listener) | to be subscribed |
+`listener` | [Listener](../modules/_broadcaster_.md#listener)‹T› | to be subscribed |
 
 **Returns:** *[Subscription](../modules/_broadcaster_.md#subscription)*
 
@@ -253,19 +261,23 @@ ___
 
 ###  once
 
-▸ **once**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
+▸ **once**<**T**>(`listener`: [Listener](../modules/_broadcaster_.md#listener)‹T›): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[once](_broadcaster_.broadcaster.md#once)*
 
-*Defined in [broadcaster.ts:70](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L70)*
+*Defined in [broadcaster.ts:79](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L79)*
 
 Add listener to be called only once.
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`listener` | [Listener](../modules/_broadcaster_.md#listener) |
+`listener` | [Listener](../modules/_broadcaster_.md#listener)‹T› |
 
 **Returns:** *[Subscription](../modules/_broadcaster_.md#subscription)*
 
@@ -275,20 +287,24 @@ ___
 
 ###  prependListener
 
-▸ **prependListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
+▸ **prependListener**<**T**>(`listener`: [Listener](../modules/_broadcaster_.md#listener)‹T›): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[prependListener](_broadcaster_.broadcaster.md#prependlistener)*
 
-*Defined in [broadcaster.ts:62](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L62)*
+*Defined in [broadcaster.ts:71](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L71)*
 
 Add listener to the beginning of the listener array
 to be invoked first.
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`listener` | [Listener](../modules/_broadcaster_.md#listener) |
+`listener` | [Listener](../modules/_broadcaster_.md#listener)‹T› |
 
 **Returns:** *[Subscription](../modules/_broadcaster_.md#subscription)*
 
@@ -298,20 +314,24 @@ ___
 
 ###  prependOnceListener
 
-▸ **prependOnceListener**(`listener`: [Listener](../modules/_broadcaster_.md#listener)): *[Subscription](../modules/_broadcaster_.md#subscription)*
+▸ **prependOnceListener**<**T**>(`listener`: [Listener](../modules/_broadcaster_.md#listener)‹T›): *[Subscription](../modules/_broadcaster_.md#subscription)*
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[prependOnceListener](_broadcaster_.broadcaster.md#prependoncelistener)*
 
-*Defined in [broadcaster.ts:79](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L79)*
+*Defined in [broadcaster.ts:88](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L88)*
 
 Add listener to the beginning of the listener array.
 To be invoked first but only once.
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`listener` | [Listener](../modules/_broadcaster_.md#listener) |
+`listener` | [Listener](../modules/_broadcaster_.md#listener)‹T› |
 
 **Returns:** *[Subscription](../modules/_broadcaster_.md#subscription)*
 
@@ -325,7 +345,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[rawListeners](_broadcaster_.broadcaster.md#rawlisteners)*
 
-*Defined in [broadcaster.ts:145](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L145)*
+*Defined in [broadcaster.ts:154](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L154)*
 
 Returns a copy of the array of listeners,
 including any wrappers (such as those created by .once()).
@@ -341,7 +361,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[removeAllListeners](_broadcaster_.broadcaster.md#removealllisteners)*
 
-*Defined in [broadcaster.ts:104](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L104)*
+*Defined in [broadcaster.ts:113](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L113)*
 
 Remove all listeners.
 
@@ -355,7 +375,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[removeListener](_broadcaster_.broadcaster.md#removelistener)*
 
-*Defined in [broadcaster.ts:88](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L88)*
+*Defined in [broadcaster.ts:97](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L97)*
 
 Remove listener.
 
@@ -375,7 +395,7 @@ ___
 
 *Inherited from [Broadcaster](_broadcaster_.broadcaster.md).[setMaxListeners](_broadcaster_.broadcaster.md#setmaxlisteners)*
 
-*Defined in [broadcaster.ts:121](https://github.com/ivandotv/estacion/blob/f5bf4b9/src/broadcaster.ts#L121)*
+*Defined in [broadcaster.ts:130](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L130)*
 
 Set maximum number of listernes.
 
