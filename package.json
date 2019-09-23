@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "prepublishOnly": "npm run compile && npm run test",
+    "prepublishOnly": "npm run build && npm run test",
     "test": "jest --verbose --coverage --no-cache",
     "test:watch": "jest --watch",
     "ci:test": "jest --runInBand --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
@@ -17,9 +17,10 @@
     "fix:src": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\"",
     "fix:tests": "eslint --fix \"./tests/**/*.{js,jsx,ts,tsx}\"",
     "fix": "npm-run-all -p fix:*",
-    "clean": "del lib",
     "docs": "del docs && typedoc --theme markdown --readme none --excludePrivate --excludeNotExported --out docs/api ./src",
-    "compile": "npm run clean && tsc --tsBuildInfoFile ./.buildcache/lib.tsbuildinfo"
+    "clean": "del lib",
+    "build": "npm run clean && tsc",
+    "build:watch": "npm run build &&  tsc --watch"
   },
   "engines": {
     "node:": ">=v8.16.1"
