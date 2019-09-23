@@ -35,7 +35,7 @@
     "url": "https://github.com/ivandotv/estacion/issues"
   },
   "homepage": "https://github.com/ivandotv/estacion#readme",
-  "peerDependencies": {
+  "dependencies": {
     "events": ">=2.0.0"
   },
   "devDependencies": {
