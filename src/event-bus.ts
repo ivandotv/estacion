@@ -10,7 +10,7 @@ export class EventBus {
   private defaultChannel!: Channel
 
   private channels: {
-    [key: string]: Channel | undefined
+    [key: string]: Channel
   } = {}
 
   constructor(config?: EventBusConfig | undefined) {
@@ -118,7 +118,15 @@ export class EventBus {
 
   /* Channel destroyed event: Remove destroyed channel from the pool  */
   private onChannelDestroyed(name: string): void {
-    this.channels[name] = undefined
+    delete this.channels[name]
+  }
+
+  /**
+   * Gets all channels
+   * @returns all channels
+   */
+  getAllChannels(): Channel[] {
+    return Object.values(this.channels)
   }
 
   /**

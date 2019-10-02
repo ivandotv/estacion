@@ -7,7 +7,7 @@ import { Topic } from './topic'
  */
 export class Channel extends Broadcaster {
   topics: {
-    [key: string]: Topic | undefined
+    [key: string]: Topic
   } = {}
 
   /**
@@ -71,11 +71,19 @@ export class Channel extends Broadcaster {
     const topic = this.topics[name]
     /* istanbul ignore else */
     if (typeof topic !== 'undefined') {
-      this.topics[name] = undefined
+      delete this.topics[name]
       topic.destroy()
       return true
     }
     return false
+  }
+
+  /**
+   * Gets all topics
+   * @returns all topics
+   */
+  getAllTopics(): Topic[] {
+    return Object.values(this.topics)
   }
 
   /* reemit when channel topic emits */
@@ -85,7 +93,7 @@ export class Channel extends Broadcaster {
 
   /* remove topic from the pool */
   private _onTopicDestroyed(name: string): void {
-    this.topics[name] = undefined
+    delete this.topics[name]
   }
 
   /**

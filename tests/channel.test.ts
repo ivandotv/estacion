@@ -74,6 +74,16 @@ describe('Channel', () => {
     expect(r).toBe(true)
     expect(channel.hasTopic(topic.name)).toBe(false)
   })
+  test('List all topics', () => {
+    channel = new Channel('test')
+    channel.topic('1')
+    channel.topic('2')
+    channel.topic('3')
+
+    const allTopics = channel.getAllTopics()
+
+    expect(allTopics.length).toBe(3)
+  })
   test("return false if topic to destroy doesn't exist", () => {
     const channel = new Channel('test')
 

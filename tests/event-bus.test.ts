@@ -59,6 +59,15 @@ describe('Event Bus', () => {
         eventBus.removeChannel(defaultChannelName)
       }).toThrow()
     })
+    test('List all channels', () => {
+      eventBus.channel('1')
+      eventBus.channel('2')
+      eventBus.channel('3')
+
+      const channels = eventBus.getAllChannels()
+      // there is always the default channel
+      expect(channels.length).toBe(4)
+    })
   })
   describe('Default channel', () => {
     test('recreate default channel if destroyed', () => {
