@@ -20,7 +20,7 @@ beforeEach(() => {
 })
 
 describe('Topic', () => {
-  test('emit payload with topic specific data', () => {
+  test('emit payload with specific data', () => {
     const expectedPayload = {
       payload: payload,
       channel: channelName,
@@ -33,7 +33,7 @@ describe('Topic', () => {
     expect(listener).toBeCalledWith(expect.objectContaining(expectedPayload))
   })
 
-  test('destroy', () => {
+  test('destroy the instance', () => {
     const emitterEmitSpy = jest.spyOn(topic.emitter, 'emit')
 
     topic.destroy()

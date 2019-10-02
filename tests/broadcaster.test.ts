@@ -15,14 +15,14 @@ beforeEach(() => {
 })
 
 describe('Broadcaster', () => {
-  describe('Initialize', () => {
+  describe('Initialize correctly', () => {
     test('with paramters', () => {
       const name = 'test'
       broadcaster = new Broadcaster(name)
       expect(broadcaster.name).toBe(name)
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(0)
     })
-    test('throw if name not provided', () => {
+    test('if name not provided, throw error', () => {
       expect(() => {
         broadcaster = new Broadcaster((undefined as unknown) as string)
       }).toThrow('')
@@ -30,7 +30,7 @@ describe('Broadcaster', () => {
   })
 
   describe('Add listeners', () => {
-    test('addListener', () => {
+    test('addListener method', () => {
       broadcaster.addListener(listener)
 
       broadcaster.emit(payload)
@@ -46,7 +46,7 @@ describe('Broadcaster', () => {
       expect(listener).toBeCalledWith(payload)
     })
 
-    test('once', () => {
+    test('once method', () => {
       broadcaster.once(listener)
 
       broadcaster.emit(payload)
@@ -55,7 +55,7 @@ describe('Broadcaster', () => {
       expect(listener).toBeCalledTimes(1)
     })
 
-    test('prependListener', () => {
+    test('prependListener method', () => {
       const firstListener = jest.fn(() => {
         throw new Error()
       })
@@ -74,7 +74,7 @@ describe('Broadcaster', () => {
     })
 
     describe('PrependOnceListener', () => {
-      test('is called first', () => {
+      test('whenever added listener should be called first', () => {
         const firstListener = jest.fn(() => {
           throw new Error()
         })
@@ -92,7 +92,7 @@ describe('Broadcaster', () => {
         expect(firstListener).toBeCalled()
       })
 
-      test('is called only one time', () => {
+      test('listener is called only once', () => {
         const listenerTwo = jest.fn()
         broadcaster.addListener(jest.fn())
         broadcaster.prependOnceListener(listenerTwo)
@@ -105,7 +105,7 @@ describe('Broadcaster', () => {
     })
 
     describe('Remove listeners', () => {
-      test('removeListener', () => {
+      test('removeListener method', () => {
         broadcaster.addListener(listener)
 
         broadcaster.removeListener(listener)
@@ -115,7 +115,7 @@ describe('Broadcaster', () => {
         expect(listener).not.toBeCalled()
       })
 
-      test('off', () => {
+      test('remove listener via off method', () => {
         broadcaster.addListener(listener)
 
         broadcaster.off(listener)
@@ -124,7 +124,7 @@ describe('Broadcaster', () => {
         expect(listener).not.toBeCalled()
       })
 
-      test('removeAllListeners', () => {
+      test('remove listener via removeAllListeners method', () => {
         const listenerTwo = jest.fn()
         broadcaster.addListener(listener)
         broadcaster.addListener(listenerTwo)
@@ -136,7 +136,7 @@ describe('Broadcaster', () => {
         expect(listenerTwo).not.toBeCalled()
       })
 
-      test('unsubscribe via returned function ', () => {
+      test('unsubscribe listener via returned function ', () => {
         const subOne = broadcaster.addListener(listener)
 
         subOne()
@@ -148,13 +148,13 @@ describe('Broadcaster', () => {
   })
 
   describe('Get and set number of listeners', () => {
-    test('init with default number (0) unlimited', () => {
+    test('initialize with the default number (0) unlimited', () => {
       const broadcaster = new Broadcaster('test')
 
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(0)
     })
 
-    test('init with custom number', () => {
+    test('initialize with custom number', () => {
       const max = 4
 
       const broadcaster = new Broadcaster('_', max)
@@ -162,7 +162,7 @@ describe('Broadcaster', () => {
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(max)
     })
 
-    test('set max listeners', () => {
+    test('set maximum number of listeners listeners', () => {
       const max = 11
 
       broadcaster.setMaxListeners(max)
@@ -170,14 +170,14 @@ describe('Broadcaster', () => {
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(max)
     })
 
-    test('get max listeners', () => {
+    test('get maximum number listeners', () => {
       const max = broadcaster.getMaxListeners()
 
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(max)
     })
   })
   describe('Query listeners', () => {
-    test('get listeners', () => {
+    test('get all listeners', () => {
       const listeners = [jest.fn(), jest.fn(), jest.fn()]
 
       broadcaster.addListener(listeners[0])
@@ -187,7 +187,7 @@ describe('Broadcaster', () => {
       expect(broadcaster.listeners()).toEqual(expect.arrayContaining(listeners))
     })
 
-    test('get raw listeners', () => {
+    test('call raw listeners method', () => {
       const listeners = [jest.fn(), jest.fn(), jest.fn()]
 
       broadcaster.addListener(listeners[0])

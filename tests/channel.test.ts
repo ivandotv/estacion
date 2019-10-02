@@ -12,8 +12,9 @@ beforeEach(() => {
   }
   channel = new Channel(channelName)
 })
+
 describe('Channel', () => {
-  test('emit', () => {
+  test('emit from channel', () => {
     const expectedPayload = {
       channel: channel.name,
       topic: '*',
@@ -44,7 +45,7 @@ describe('Channel', () => {
     expect(listener).toBeCalledWith(expect.objectContaining(expectedPayload))
   })
 
-  test('create topic', () => {
+  test('create new topic', () => {
     const topicName = 'tEsT'
 
     const channel = new Channel('test')
@@ -53,7 +54,7 @@ describe('Channel', () => {
     expect(channel.hasTopic(topicName)).toBe(true)
   })
 
-  test('check if topic exists', () => {
+  test('check if topic whith the name already exists', () => {
     const topicName = 'test'
 
     const topic = channel.topic(topicName)
@@ -63,7 +64,7 @@ describe('Channel', () => {
     expect(channel.hasTopic('fake')).toBe(false)
   })
 
-  test('destroy topic', () => {
+  test('destroy the topic', () => {
     const channel = new Channel('test')
     const topic = channel.topic('test')
     const spy = jest.spyOn(topic, 'destroy')
@@ -74,7 +75,7 @@ describe('Channel', () => {
     expect(r).toBe(true)
     expect(channel.hasTopic(topic.name)).toBe(false)
   })
-  test('List all topics', () => {
+  test('list all topics', () => {
     channel = new Channel('test')
     channel.topic('1')
     channel.topic('2')
@@ -84,7 +85,7 @@ describe('Channel', () => {
 
     expect(allTopics.length).toBe(3)
   })
-  test("return false if topic to destroy doesn't exist", () => {
+  test("if the topic to destroy doesn't exist, return false ", () => {
     const channel = new Channel('test')
 
     const result = channel.removeTopic('fake')

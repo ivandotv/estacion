@@ -6,12 +6,12 @@ beforeEach(() => {
 })
 
 describe('Event Bus', () => {
-  describe('Initialize', () => {
-    test('with default config', () => {
+  describe('Initialize class instance', () => {
+    test('initialize with default config', () => {
       expect(eventBus.channel('*').getMaxListeners()).toBe(0)
     })
 
-    test('with custom config', () => {
+    test('Initialize with custom config', () => {
       const max = 11
 
       const eventBus = new EventBus({ maxListeners: max })
@@ -52,14 +52,14 @@ describe('Event Bus', () => {
       expect(channel).toBe(eventBus.channel('*'))
     })
 
-    test('throw if removing default channel', () => {
+    test('throw if someone tries to remove the default channel', () => {
       const defaultChannelName = '*'
 
       expect(() => {
         eventBus.removeChannel(defaultChannelName)
       }).toThrow()
     })
-    test('List all channels', () => {
+    test('List all available channels', () => {
       eventBus.channel('1')
       eventBus.channel('2')
       eventBus.channel('3')
@@ -70,7 +70,7 @@ describe('Event Bus', () => {
     })
   })
   describe('Default channel', () => {
-    test('recreate default channel if destroyed', () => {
+    test("recreate default channel if it's destroyed", () => {
       const listener = jest.fn()
       eventBus.mainChannel().on(listener)
       const listenerCount = eventBus.mainChannel().listenerCount()
@@ -87,7 +87,7 @@ describe('Event Bus', () => {
       expect(mainChannel).toBe(allChannels)
     })
     describe('Reemit payloads on default channel ', () => {
-      test('directly from channel', () => {
+      test('reemit when broadcasted directly from channel', () => {
         const payload = {
           propOne: 'one',
         }
@@ -106,7 +106,7 @@ describe('Event Bus', () => {
         expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
       })
 
-      test('from topic', () => {
+      test('reemit on default channel when broadcasted from topic', () => {
         const payload = {
           propOne: 'one',
         }
@@ -126,7 +126,7 @@ describe('Event Bus', () => {
 
         expect(listener).toBeCalledWith(expect.objectContaining(payLoadEvent))
       })
-      test('to listeners on particular topic from any channel', () => {
+      test('reemit to listeners on particular topic from any channel', () => {
         const payload = {
           propOne: 'one',
         }
@@ -166,7 +166,7 @@ describe('Event Bus', () => {
         )
       })
 
-      test('to listeners on particular topic from any channel only once', () => {
+      test('reemit to listeners on particular topic from any channel only once', () => {
         const payload = {
           propOne: 'one',
         }
@@ -202,7 +202,7 @@ describe('Event Bus', () => {
       })
     })
   })
-  describe('Destroy', () => {
+  describe('Destroy class instance', () => {
     test('clean up references', () => {
       const defaultChannel = eventBus.channel('*')
       const testChannel = eventBus.channel('test')
