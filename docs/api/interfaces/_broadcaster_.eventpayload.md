@@ -28,7 +28,7 @@ Payload interface that is emitter from the events
 
 • **channel**: *string*
 
-*Defined in [broadcaster.ts:199](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L199)*
+*Defined in [broadcaster.ts:199](https://github.com/ivandotv/estacion/blob/d75ef20/src/broadcaster.ts#L199)*
 
 Channel name.
 
@@ -38,7 +38,7 @@ ___
 
 • **payload**? : *[T](undefined)*
 
-*Defined in [broadcaster.ts:209](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L209)*
+*Defined in [broadcaster.ts:209](https://github.com/ivandotv/estacion/blob/d75ef20/src/broadcaster.ts#L209)*
 
 Payload - custom data to pass to the listeners
 
@@ -48,6 +48,6 @@ ___
 
 • **topic**: *string*
 
-*Defined in [broadcaster.ts:204](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L204)*
+*Defined in [broadcaster.ts:204](https://github.com/ivandotv/estacion/blob/d75ef20/src/broadcaster.ts#L204)*
 
 Topic name.

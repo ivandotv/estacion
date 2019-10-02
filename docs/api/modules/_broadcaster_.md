@@ -25,7 +25,7 @@
 
 Ƭ **Listener**: *function*
 
-*Defined in [broadcaster.ts:215](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L215)*
+*Defined in [broadcaster.ts:215](https://github.com/ivandotv/estacion/blob/d75ef20/src/broadcaster.ts#L215)*
 
 Listener interface for adding to Broadcaster.
 
@@ -45,7 +45,7 @@ ___
 
 Ƭ **Subscription**: *function*
 
-*Defined in [broadcaster.ts:220](https://github.com/ivandotv/estacion/blob/b673ec5/src/broadcaster.ts#L220)*
+*Defined in [broadcaster.ts:220](https://github.com/ivandotv/estacion/blob/d75ef20/src/broadcaster.ts#L220)*
 
 Subscription interface that is used for unsubscribing the listener that was previously subscribed.
 
