@@ -12,6 +12,13 @@ Estacion is made on top of native node `EventEmitter` class.
 
 It can be used in the browser via [`events`](https://www.npmjs.com/package/events) module which is automatically included by the bundlers like `webpack` and `browserify`.
 
+## How it works
+
+Event bus has channels, channels have topics.
+If you subscribe to the channel you receive events from all the topics on the channel.
+
+If you subscribe to the topic, you will receive events that are emitted only on that topic.
+
 ## Instalation
 
 ```js
