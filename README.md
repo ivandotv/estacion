@@ -2,7 +2,6 @@
 
 ![CircleCI](https://img.shields.io/circleci/build/github/ivandotv/estacion/master)
 ![Codecov](https://img.shields.io/codecov/c/github/ivandotv/estacion)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/estacion)
 ![NPM](https://img.shields.io/npm/l/estacion)
 ![dependabot enabled](https://flat.badgen.net/dependabot/dependabot/dependabot-core/?icon=dependabot)
 
