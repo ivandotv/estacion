@@ -18,7 +18,7 @@ If you subscribe to the channel you receive events from all the topics on the ch
 
 If you subscribe to the topic, you will receive events that are emitted only on that topic.
 
-## Instalation
+## Installation
 
 ```js
 npm install estacion
@@ -80,7 +80,6 @@ userAdded.emit({ name: 'Sam', lastName: 'Fisher' })
 ```
 
 > skip to [`mainChannel`](#Eventbus-main-channel) explanation
-
 > example on [runkit](https://runkit.com/ivandotv/estacion-example)
 
 Setup is really simple:
@@ -317,7 +316,7 @@ mainChannel.topic('economy').addListener(event => {
 
 `Estacion` is written in TypeScript, [auto generated API docs](https://github.com/ivandotv/estacion/blob/master/docs/api/README.md) are available.
 
-##### Author
+#### Author
 
 - **Ivan Vlatković**
 
