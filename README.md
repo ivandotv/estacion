@@ -2,7 +2,6 @@
 
 ![CircleCI](https://img.shields.io/circleci/build/github/ivandotv/estacion/master)
 ![Codecov](https://img.shields.io/codecov/c/github/ivandotv/estacion)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/estacion)
 ![NPM](https://img.shields.io/npm/l/estacion)
 ![dependabot enabled](https://flat.badgen.net/dependabot/dependabot/dependabot-core/?icon=dependabot)
 
@@ -12,7 +11,14 @@ Estacion is made on top of native node `EventEmitter` class.
 
 It can be used in the browser via [`events`](https://www.npmjs.com/package/events) module which is automatically included by the bundlers like `webpack` and `browserify`.
 
-## Instalation
+## How it works
+
+Event bus has channels, channels have topics.
+If you subscribe to the channel you receive events from all the topics on the channel.
+
+If you subscribe to the topic, you will receive events that are emitted only on that topic.
+
+## Installation
 
 ```js
 npm install estacion
@@ -74,7 +80,6 @@ userAdded.emit({ name: 'Sam', lastName: 'Fisher' })
 ```
 
 > skip to [`mainChannel`](#Eventbus-main-channel) explanation
-
 > example on [runkit](https://runkit.com/ivandotv/estacion-example)
 
 Setup is really simple:
@@ -311,7 +316,7 @@ mainChannel.topic('economy').addListener(event => {
 
 `Estacion` is written in TypeScript, [auto generated API docs](https://github.com/ivandotv/estacion/blob/master/docs/api/README.md) are available.
 
-##### Author
+#### Author
 
 - **Ivan Vlatković**
 
