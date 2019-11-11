@@ -1,22 +1,20 @@
 # Estacion
 
-![CircleCI](https://img.shields.io/circleci/build/github/ivandotv/estacion/master)
-![Codecov](https://img.shields.io/codecov/c/github/ivandotv/estacion)
-![NPM](https://img.shields.io/npm/l/estacion)
-![dependabot enabled](https://flat.badgen.net/dependabot/dependabot/dependabot-core/?icon=dependabot)
+[![CircleCI](https://img.shields.io/circleci/build/github/ivandotv/estacion/master)](https://circleci.com/gh/ivandotv/estacion)
+[![Codecov](https://img.shields.io/codecov/c/github/ivandotv/estacion)](https://codecov.io/gh/ivandotv/estacion)
+[![NPM](https://img.shields.io/npm/l/estacion)](https://www.npmjs.com/package/estacion)
 
-Your search for the event bus implementation is over.
-
-Estacion is made on top of native node `EventEmitter` class.
+Implementation of the event bus pattern via node `EventEmitter` class.
 
 It can be used in the browser via [`events`](https://www.npmjs.com/package/events) module which is automatically included by the bundlers like `webpack` and `browserify`.
 
 ## How it works
 
-Event bus has channels, channels have topics.
-If you subscribe to the channel you receive events from all the topics on the channel.
+Event bus is compromised of channels, channels have topics.
+Events are dispatched on via channels or via topics.
+If you subscribe to the channel you will receive events from all the topics on the channel.
 
-If you subscribe to the topic, you will receive events that are emitted only on that topic.
+If you subscribe to the topic, you will receive events that are emitted only via that particular topic.
 
 ## Installation
 

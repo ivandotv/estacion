@@ -1,6 +1,6 @@
 {
   "name": "estacion",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Event bus implementation made on top of native node events module",
   "main": "lib",
   "types": "lib",
@@ -18,7 +18,7 @@
     "fix:tests": "eslint --fix \"./tests/**/*.{js,jsx,ts,tsx}\"",
     "fix": "npm-run-all -p fix:*",
     "docs": "del docs && typedoc --theme markdown --readme none --excludePrivate --excludeNotExported --out docs/api ./src",
-    "clean": "del lib",
+    "clean": "del lib && del .buildcache",
     "build": "npm run clean && tsc",
     "build:watch": "npm run build &&  tsc --watch"
   },
@@ -35,30 +35,31 @@
     "url": "https://github.com/ivandotv/estacion/issues"
   },
   "homepage": "https://github.com/ivandotv/estacion#readme",
-  "dependencies": {
+  "peerDependencies": {
     "events": ">=2.0.0"
   },
   "devDependencies": {
+    "events": ">=2.0.0",
     "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.4",
+    "@types/node": "^13.1.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "del-cli": "^3.0.0",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.3.0",
-    "eslint-config-standard-with-typescript": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^11.0.1",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
-    "jest-junit": "^8.0.0",
+    "jest-junit": "^10.0.0",
     "jest-watch-typeahead": "^0.4.0",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.16.5",
     "typedoc-plugin-markdown": "^2.1.11",
     "typescript": "^3.6.2"
   },
