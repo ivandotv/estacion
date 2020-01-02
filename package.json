@@ -35,10 +35,11 @@
     "url": "https://github.com/ivandotv/estacion/issues"
   },
   "homepage": "https://github.com/ivandotv/estacion#readme",
-  "dependencies": {
+  "peerDependencies": {
     "events": ">=2.0.0"
   },
   "devDependencies": {
+    "events": ">=2.0.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^13.1.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
