@@ -12,6 +12,11 @@ jobs:
       - image: circleci/node:12
     steps:
       - test
+  node-v14:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - test
       - store-artifacts
       - setup-coverage
 commands:
@@ -48,3 +53,4 @@ workflows:
     jobs:
       - node-v10
       - node-v12
+      - node-v14
