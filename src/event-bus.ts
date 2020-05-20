@@ -27,7 +27,7 @@ export class EventBus {
     this.channels['*'] = this.defaultChannel
     this.defaultChannel
       .getEventEmitter()
-      .on('channel_destroyed', (name: string) => {
+      .on('channel_destroyed', (_name: string) => {
         this.createMainChannel()
       })
   }
@@ -62,6 +62,7 @@ export class EventBus {
       channel.on(this.onChannelEmit)
       channel.getEventEmitter().on('channel_destroyed', this.onChannelDestroyed)
     }
+
     return channel
   }
 
@@ -90,8 +91,10 @@ export class EventBus {
     /* istanbul ignore else */
     if (typeof channel !== 'undefined') {
       channel.destroy()
+
       return true
     }
+
     return false
   }
 
@@ -103,7 +106,7 @@ export class EventBus {
       var topicPayload = {
         topic: payload.topic,
         channel: payload.channel,
-        payload: payload.payload,
+        payload: payload.payload
       }
 
       this.defaultChannel

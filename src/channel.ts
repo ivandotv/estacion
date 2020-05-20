@@ -24,7 +24,7 @@ export class Channel extends Broadcaster {
     var payloadData = {
       channel: this.name,
       topic: '*',
-      payload: payload,
+      payload: payload
     }
 
     super.emit(payloadData)
@@ -47,6 +47,7 @@ export class Channel extends Broadcaster {
       topic.getEventEmitter().on('topic_destroyed', this._onTopicDestroyed)
       topic.on(this._onTopicEmit)
     }
+
     return topic
   }
 
@@ -73,8 +74,10 @@ export class Channel extends Broadcaster {
     if (typeof topic !== 'undefined') {
       delete this.topics[name]
       topic.destroy()
+
       return true
     }
+
     return false
   }
 

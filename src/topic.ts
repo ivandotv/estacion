@@ -20,7 +20,7 @@ export class Topic extends Broadcaster {
     const payloadData = {
       channel: this.channel,
       topic: this.name,
-      payload: payload,
+      payload: payload
     }
     super.emit(payloadData)
   }

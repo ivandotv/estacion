@@ -178,6 +178,7 @@ export class Broadcaster {
     listener: Listener
   ): Subscription {
     this._proxyListener(method, listener)
+
     return this._createUnsubscribe(listener)
   }
 
