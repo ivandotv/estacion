@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/ivandotv/estacion#readme",
   "peerDependencies": {
-    "events": ">=3.1.0"
+    "events": "3.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.0",
@@ -51,7 +51,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "events": ">=3.1.0",
+    "events": "3.3.0",
     "husky": "^5.0.0",
     "jest": "^26.0.1",
     "jest-junit": "^12.0.0",
