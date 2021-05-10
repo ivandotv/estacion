@@ -11,7 +11,7 @@ describe('Event Bus', () => {
       expect(eventBus.channel('*').getMaxListeners()).toBe(0)
     })
 
-    test('Initialize with custom config', () => {
+    test('Initialize with a custom config', () => {
       const max = 11
 
       const eventBus = new EventBus({ maxListeners: max })
@@ -89,7 +89,7 @@ describe('Event Bus', () => {
     describe('Reemit payloads on default channel ', () => {
       test('reemit when broadcasted directly from channel', () => {
         const payload = {
-          propOne: 'one',
+          propOne: 'one'
         }
         const channelName = 'test'
         const listener = jest.fn()
@@ -98,7 +98,7 @@ describe('Event Bus', () => {
         const payLoadEvent = {
           channel: channelName,
           topic: '*',
-          payload: payload,
+          payload: payload
         }
 
         channel.emit(payload)
@@ -108,7 +108,7 @@ describe('Event Bus', () => {
 
       test('reemit on default channel when broadcasted from topic', () => {
         const payload = {
-          propOne: 'one',
+          propOne: 'one'
         }
         const channelName = 'rocket_launcher'
         const topicName = 'rocket_fired'
@@ -119,7 +119,7 @@ describe('Event Bus', () => {
         const payLoadEvent = {
           channel: channelName,
           topic: topicName,
-          payload: payload,
+          payload: payload
         }
 
         topic.emit(payload)
@@ -128,7 +128,7 @@ describe('Event Bus', () => {
       })
       test('reemit to listeners on particular topic from any channel', () => {
         const payload = {
-          propOne: 'one',
+          propOne: 'one'
         }
         const topicListener = jest.fn()
         const channelOneName = 'rocket_launcher'
@@ -139,12 +139,12 @@ describe('Event Bus', () => {
         const payLoadOneEvent = {
           channel: channelOneName,
           topic: topicName,
-          payload: payload,
+          payload: payload
         }
         const payLoadTwoEvent = {
           channel: channelTwoName,
           topic: topicName,
-          payload: payload,
+          payload: payload
         }
         // two different channels with the same topic
         const topicOne = channelOne.topic(topicName)
@@ -168,7 +168,7 @@ describe('Event Bus', () => {
 
       test('reemit to listeners on particular topic from any channel only once', () => {
         const payload = {
-          propOne: 'one',
+          propOne: 'one'
         }
         const topicListener = jest.fn()
         const channelOneName = 'rocket_launcher'
@@ -179,7 +179,7 @@ describe('Event Bus', () => {
         const payLoadOneEvent = {
           channel: channelOneName,
           topic: topicName,
-          payload: payload,
+          payload: payload
         }
         // two different channels with the same topic
         const topicOne = channelOne.topic(topicName)

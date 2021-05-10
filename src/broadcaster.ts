@@ -21,8 +21,8 @@ export class Broadcaster {
   private readonly _name: string
 
   /**
-   * @param name default event name
-   * @param maxListeners maximum number of allowed listeners 0 means unlimited
+   * @param name - default event name
+   * @param maxListeners - maximum number of allowed listeners 0 means unlimited
    */
   constructor(name: string, maxListeners = 0) {
     this.emitter = new EventEmitter()
@@ -38,8 +38,9 @@ export class Broadcaster {
   }
 
   /**
-   * Synchronously calls each of the listeners registered for the event named eventName, in the order they were registered, passing the supplied arguments to each.
-   * @param payload data to be passed to the listeners
+   * Synchronously calls each of the listeners registered for the event named eventName,
+   *  in the order they were registered, passing the supplied arguments to each.
+   * @param payload - data to be passed to the listeners
    */
   emit(payload?: EventPayload | undefined): void {
     this.emitter.emit(this._name, payload)
@@ -47,7 +48,7 @@ export class Broadcaster {
 
   /**
    * Add listener to the broadcaster.
-   * @param  listener to be added
+   * @param  listener - to be added
    * @returns  function to remove the added listener
    */
   addListener<T>(listener: Listener<T>): Subscription {
@@ -56,7 +57,7 @@ export class Broadcaster {
 
   /**
    * Alias of {@link Broadcaster.addListener}
-   * @param  listener to be subscribed
+   * @param  listener - to be subscribed
    * @returns  function to unsubscribe the listener
    */
   on<T>(listener: Listener<T>): Subscription {

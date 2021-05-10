@@ -7,8 +7,8 @@ beforeEach(() => {
     channel: channelName,
     topic: 'test_topic',
     payload: {
-      propOne: 'one',
-    },
+      propOne: 'one'
+    }
   }
   channel = new Channel(channelName)
 })
@@ -18,7 +18,7 @@ describe('Channel', () => {
     const expectedPayload = {
       channel: channel.name,
       topic: '*',
-      payload: payload,
+      payload: payload
     }
     const listener = jest.fn()
     channel.addListener(listener)
@@ -35,7 +35,7 @@ describe('Channel', () => {
     const expectedPayload = {
       channel: channel.name,
       topic: topicName,
-      payload: payload,
+      payload: payload
     }
     // add listener to the channel
     channel.addListener(listener)

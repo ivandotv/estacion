@@ -7,22 +7,22 @@ beforeEach(() => {
     channel: 'test_channel',
     topic: 'test_topic',
     payload: {
-      propOne: 'one',
-    },
+      propOne: 'one'
+    }
   }
   listener = jest.fn()
   broadcaster = new Broadcaster('test')
 })
 
 describe('Broadcaster', () => {
-  describe('Initialize correctly', () => {
+  describe('Initialize', () => {
     test('with paramters', () => {
       const name = 'test'
       broadcaster = new Broadcaster(name)
       expect(broadcaster.name).toBe(name)
       expect(broadcaster.getEventEmitter().getMaxListeners()).toBe(0)
     })
-    test('if name not provided, throw error', () => {
+    test('if the name is not provided, throw error', () => {
       expect(() => {
         broadcaster = new Broadcaster((undefined as unknown) as string)
       }).toThrow('')
@@ -38,7 +38,7 @@ describe('Broadcaster', () => {
       expect(listener).toBeCalledWith(payload)
     })
 
-    test('on', () => {
+    test('on method', () => {
       broadcaster.on(listener)
 
       broadcaster.emit(payload)

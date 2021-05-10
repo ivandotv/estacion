@@ -51,7 +51,7 @@ export class EventBus {
    * Create and return the channel with the specified name.
    * If the channel does not exist it will be created.
    *
-   * @param name channel name
+   * @param name - channel name
    */
 
   channel(name: string): Channel {
@@ -69,7 +69,7 @@ export class EventBus {
   /**
    * Check if the channel exists.
    *
-   * @param name channel name
+   * @param name - channel name
    */
   hasChannel(name: string): boolean {
     return Boolean(this.channels[name])
@@ -80,7 +80,7 @@ export class EventBus {
    * All listeners for the channel on all topics emitted from the channel
    * are automatically removed.
    *
-   * @param  name channel name
+   * @param  name - channel name
    * @returns true if the channel has been removed successfully
    */
   removeChannel(name: string): boolean {

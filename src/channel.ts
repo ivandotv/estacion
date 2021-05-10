@@ -11,8 +11,8 @@ export class Channel extends Broadcaster {
   } = {}
 
   /**
-   * @param  name channel name
-   * @param  maxListeners Maximum number of listeners allowd default value zero(0) - unlimited
+   * @param  name - channel name
+   * @param  maxListeners - maximum number of listeners allowd default value zero(0) - unlimited
    */
   constructor(name: string, maxListeners: number = 0) {
     super(name, maxListeners)
@@ -20,6 +20,10 @@ export class Channel extends Broadcaster {
     this._onTopicEmit = this._onTopicEmit.bind(this)
   }
 
+  /**
+   * Emit payload
+   * @param [payload] - payload to emit
+   */
   emit(payload?: any | undefined): void {
     var payloadData = {
       channel: this.name,
@@ -33,7 +37,7 @@ export class Channel extends Broadcaster {
   /**
    * Create or return existing topic for the channel.
    *
-   * @param name topic name
+   * @param name - topic name
    */
   topic(name: string): Topic {
     var topic = this.topics[name]
@@ -54,7 +58,7 @@ export class Channel extends Broadcaster {
   /**
    * Check if topic exists.
    *
-   * @param  name
+   * @param  name - topic name to check
    * @returns  true if topic is found
    */
   hasTopic(name: string): boolean {
@@ -65,7 +69,7 @@ export class Channel extends Broadcaster {
    * Remove topic from the channel.
    * All listeners for the topic are automatically removed.
    *
-   * @param  name topic name
+   * @param  name - topic name
    * @returns true if the topic has been successfully removed
    */
   removeTopic(name: string): boolean {
