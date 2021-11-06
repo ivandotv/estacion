@@ -11,7 +11,7 @@ export class Topic extends Broadcaster {
    * @param channel channel this topic belongs to
    * @param maxListeners maximum number of listeners allowed
    */
-  constructor(name: string, channel: string, maxListeners: number = 0) {
+  constructor(name: string, channel: string, maxListeners = 0) {
     super(name, maxListeners)
     this.channel = channel
   }

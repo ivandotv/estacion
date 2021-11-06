@@ -55,7 +55,7 @@ export class EventBus {
    */
 
   channel(name: string): Channel {
-    var channel = this.channels[name]
+    let channel = this.channels[name]
     if (typeof channel === 'undefined') {
       // create new channel
       channel = this.channels[name] = new Channel(name, this._maxListeners)
@@ -87,7 +87,7 @@ export class EventBus {
     if (name === '*') {
       throw new Error("Can't remove default channel")
     }
-    var channel = this.channels[name]
+    const channel = this.channels[name]
     /* istanbul ignore else */
     if (typeof channel !== 'undefined') {
       channel.destroy()
@@ -103,7 +103,7 @@ export class EventBus {
     const topicName = payload.topic
     if (this.defaultChannel.hasTopic(topicName)) {
       // subscribers for topic on all available channels
-      var topicPayload = {
+      const topicPayload = {
         topic: payload.topic,
         channel: payload.channel,
         payload: payload.payload
@@ -139,7 +139,7 @@ export class EventBus {
    */
   destroy(): void {
     for (const channel in this.channels) {
-      this.channels[channel]!.destroy()
+      this.channels[channel].destroy()
     }
   }
 }

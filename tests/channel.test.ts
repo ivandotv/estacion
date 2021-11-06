@@ -85,7 +85,7 @@ describe('Channel', () => {
 
     expect(allTopics.length).toBe(3)
   })
-  test("if the topic to destroy doesn't exist, return false ", () => {
+  test("if the topic to destroy doesn't exist, return false", () => {
     const channel = new Channel('test')
 
     const result = channel.removeTopic('fake')
