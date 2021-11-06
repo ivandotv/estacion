@@ -1,19 +1,21 @@
 module.exports = {
+  root: true,
   env: {
     // commonjs: true,
     es6: true,
     node: true,
     jest: true
   },
-  globals: {
-    __DEV__: true,
-    __VERSION__: true
-  },
-  plugins: ['@typescript-eslint/eslint-plugin', 'prettier', 'standard'],
-  extends: ['prettier/standard', 'standard'],
+  globals: {},
+  plugins: ['@typescript-eslint/eslint-plugin', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'prettier'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    // project: './tsconfig.eslint.json',
     sourceType: 'module'
   },
   rules: {
@@ -42,7 +44,14 @@ module.exports = {
         accessibility: 'no-public'
       }
     ],
-    '@typescript-eslint/no-non-null-assertion': ['off'],
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': 'allow-with-description'
+      }
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': [2],
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -56,16 +65,14 @@ module.exports = {
         }
       }
     ],
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }
-    ]
+    '@typescript-eslint/no-unused-vars': ['off']
   },
   overrides: [
     {
       files: ['*.js', '*.jsx'],
       rules: {
-        '@typescript-eslint/explicit-function-return-type': 'off'
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-var-requires': 'off'
       }
     }
   ]
