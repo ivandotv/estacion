@@ -41,7 +41,7 @@ describe('Event Bus', () => {
       expect(removed).toBe(true)
     })
 
-    test('remove channel that does not exist ', () => {
+    test('remove channel that does not exist', () => {
       const removed = eventBus.removeChannel('test')
 
       expect(removed).toBe(false)
@@ -86,7 +86,7 @@ describe('Event Bus', () => {
       const allChannels = eventBus.allChannels()
       expect(mainChannel).toBe(allChannels)
     })
-    describe('Reemit payloads on default channel ', () => {
+    describe('Reemit payloads on default channel', () => {
       test('reemit when broadcasted directly from channel', () => {
         const payload = {
           propOne: 'one'
@@ -151,7 +151,7 @@ describe('Event Bus', () => {
         const topicTwo = channelTwo.topic(topicName)
 
         // add listener to default channel
-        var defaultChannelTopic = eventBus.channel('*').topic(topicName)
+        const defaultChannelTopic = eventBus.channel('*').topic(topicName)
 
         defaultChannelTopic.addListener(topicListener)
 
@@ -186,7 +186,7 @@ describe('Event Bus', () => {
         const topicTwo = channelTwo.topic(topicName)
 
         // add listener to default channel
-        var defaultChannelTopic = eventBus.channel('*').topic(topicName)
+        const defaultChannelTopic = eventBus.channel('*').topic(topicName)
 
         defaultChannelTopic.once(topicListener)
 

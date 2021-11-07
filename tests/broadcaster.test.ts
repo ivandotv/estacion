@@ -24,7 +24,7 @@ describe('Broadcaster', () => {
     })
     test('if the name is not provided, throw error', () => {
       expect(() => {
-        broadcaster = new Broadcaster((undefined as unknown) as string)
+        broadcaster = new Broadcaster(undefined as unknown as string)
       }).toThrow('')
     })
   })
@@ -62,8 +62,7 @@ describe('Broadcaster', () => {
       // add first listener (should throw if called first)
       broadcaster.addListener(firstListener)
       broadcaster.prependListener(() => {
-        // switch firstListener mock not to throw
-        // @ts-ignore
+        // @ts-expect-error switch firstListener mock not to throw
         firstListener.mockImplementation(() => true)
       })
 
@@ -81,8 +80,7 @@ describe('Broadcaster', () => {
         // add first listener (should throw if called first)
         broadcaster.addListener(firstListener)
         broadcaster.prependOnceListener(() => {
-          // switch firstListener mock not to throw
-          // @ts-ignore
+          // @ts-expect-error switch firstListener mock not to throw
           firstListener.mockImplementation((): boolean => true)
         })
 
@@ -136,7 +134,7 @@ describe('Broadcaster', () => {
         expect(listenerTwo).not.toBeCalled()
       })
 
-      test('unsubscribe listener via returned function ', () => {
+      test('unsubscribe listener via returned function', () => {
         const subOne = broadcaster.addListener(listener)
 
         subOne()

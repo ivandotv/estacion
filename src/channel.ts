@@ -14,7 +14,7 @@ export class Channel extends Broadcaster {
    * @param  name - channel name
    * @param  maxListeners - maximum number of listeners allowd default value zero(0) - unlimited
    */
-  constructor(name: string, maxListeners: number = 0) {
+  constructor(name: string, maxListeners = 0) {
     super(name, maxListeners)
     this._onTopicDestroyed = this._onTopicDestroyed.bind(this)
     this._onTopicEmit = this._onTopicEmit.bind(this)
@@ -25,7 +25,7 @@ export class Channel extends Broadcaster {
    * @param [payload] - payload to emit
    */
   emit(payload?: any | undefined): void {
-    var payloadData = {
+    const payloadData = {
       channel: this.name,
       topic: '*',
       payload: payload
@@ -40,7 +40,7 @@ export class Channel extends Broadcaster {
    * @param name - topic name
    */
   topic(name: string): Topic {
-    var topic = this.topics[name]
+    let topic = this.topics[name]
     if (typeof topic === 'undefined') {
       // create new topic
       topic = this.topics[name] = new Topic(
@@ -108,7 +108,7 @@ export class Channel extends Broadcaster {
    *
    */
   destroy(): void {
-    for (var topic in this.topics) {
+    for (const topic in this.topics) {
       this.removeTopic(topic)
     }
 
