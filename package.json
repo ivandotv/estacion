@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "prepublishOnly": "npm run build && npm run test",
+    "prepublishOnly": "npm run test && npm run build",
     "test": "jest --verbose --coverage --no-cache",
     "test:watch": "jest --watch",
     "ci:test": "jest --runInBand --reporters=default --reporters=jest-junit --coverage --coverageDirectory=coverage",
@@ -20,7 +20,8 @@
     "docs": "del docs && typedoc --theme markdown --readme none --excludePrivate --out docs/api ./src",
     "clean": "del lib && del .buildcache",
     "build": "npm run clean && tsc",
-    "build:watch": "npm run build &&  tsc --watch"
+    "build:watch": "npm run build &&  tsc --watch",
+    "prepare": "husky install"
   },
   "engines": {
     "node:": ">=v8.16.1"

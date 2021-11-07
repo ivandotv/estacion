@@ -1,12 +1,10 @@
 module.exports = {
   root: true,
   env: {
-    // commonjs: true,
     es6: true,
     node: true,
     jest: true
   },
-  globals: {},
   plugins: ['@typescript-eslint/eslint-plugin', 'prettier'],
   extends: [
     'eslint:recommended',
@@ -66,6 +64,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-unused-vars': ['off']
+    // '@typescript-eslint/no-unused-vars': ['off'],
   },
   overrides: [
     {
