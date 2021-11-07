@@ -25,11 +25,9 @@ export class EventBus {
   private createMainChannel(): void {
     this.defaultChannel = new Channel('*', this._maxListeners)
     this.channels['*'] = this.defaultChannel
-    this.defaultChannel
-      .getEventEmitter()
-      .on('channel_destroyed', (_name: string) => {
-        this.createMainChannel()
-      })
+    this.defaultChannel.getEventEmitter().on('channel_destroyed', () => {
+      this.createMainChannel()
+    })
   }
 
   /**
