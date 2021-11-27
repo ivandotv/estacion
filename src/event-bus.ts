@@ -32,7 +32,7 @@ export class EventBus {
 
   /**
    * Return main (default channel) for the  EventBus instance.
-   * On main channel are able to listen to
+   * by subscribing to the main channel you can listen to
    * events emitted from all other channels and topics.
    */
   mainChannel(): Channel {
