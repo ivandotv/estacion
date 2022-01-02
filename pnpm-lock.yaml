@@ -7,7 +7,7 @@ specifiers:
   del-cli: ^3.0.1
   eslint: ^7.26.0
   eslint-config-prettier: ^8.3.0
-  eslint-config-standard-with-typescript: ^20.0.0
+  eslint-config-standard-with-typescript: ^21.0.0
   eslint-plugin-import: ^2.22.1
   eslint-plugin-jest: ^25.2.3
   eslint-plugin-node: ^11.1.0
@@ -34,7 +34,7 @@ devDependencies:
   del-cli: 3.0.1
   eslint: 7.32.0
   eslint-config-prettier: 8.3.0_eslint@7.32.0
-  eslint-config-standard-with-typescript: 20.0.0_8d691c34813dab6e7d3913a38bdaf4c7
+  eslint-config-standard-with-typescript: 21.0.1_8d691c34813dab6e7d3913a38bdaf4c7
   eslint-plugin-import: 2.25.2_eslint@7.32.0
   eslint-plugin-jest: 25.2.3_ef6b6effaee813c3efe7f89d290e6549
   eslint-plugin-node: 11.1.0_eslint@7.32.0
@@ -1889,15 +1889,15 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-config-standard-with-typescript/20.0.0_8d691c34813dab6e7d3913a38bdaf4c7:
-    resolution: {integrity: sha512-IoySf3r0a2+P3Z6GMjv8p1HuOQ6GWQbMpdt9G8uEbkGpnNWAGBXpgaiutbZHbaQAvG5pkVtYepCfHUxYbVDLCA==}
+  /eslint-config-standard-with-typescript/21.0.1_8d691c34813dab6e7d3913a38bdaf4c7:
+    resolution: {integrity: sha512-FeiMHljEJ346Y0I/HpAymNKdrgKEpHpcg/D93FvPHWfCzbT4QyUJba/0FwntZeGLXfUiWDSeKmdJD597d9wwiw==}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': '>=4.0.1'
-      eslint: '>=7.12.1'
-      eslint-plugin-import: '>=2.22.1'
-      eslint-plugin-node: '>=11.1.0'
-      eslint-plugin-promise: '>=4.2.1'
-      typescript: '>=3.9'
+      '@typescript-eslint/eslint-plugin': ^4.0.1
+      eslint: ^7.12.1
+      eslint-plugin-import: ^2.22.1
+      eslint-plugin-node: ^11.1.0
+      eslint-plugin-promise: ^4.2.1 || ^5.0.0
+      typescript: ^3.9 || ^4.0.0
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.33.0_eslint@7.32.0+typescript@4.4.4
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.4.4
